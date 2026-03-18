@@ -1,0 +1,3128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Propertunities</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Propertunities — Fresh Growth green palette */
+  --bg: #F4FAF6;
+  --surface: #FFFFFF;
+  --surface2: #EBF5EE;
+  --primary: #2A7D4F;          /* forest green — trust, growth */
+  --primary-light: #3DA068;
+  --primary-dim: rgba(42,125,79,0.1);
+  --primary-border: rgba(42,125,79,0.22);
+  --sun: #F5A623;              /* warm amber — optimism */
+  --sun-light: #FFCA6B;
+  --sun-dim: rgba(245,166,35,0.12);
+  --sun-border: rgba(245,166,35,0.3);
+  --growth: #2A7D4F;
+  --growth-light: #3DA068;
+  --accent2: #4AADCF;          /* teal — fresh perspective */
+  --accent3: #E07B54;          /* warm terra — energy */
+  --accent4: #8B6BAE;          /* plum — wisdom */
+  --mint: #D4F0E0;
+  --ink: #0F2818;              /* deep forest — readable */
+  --ink-dim: rgba(15,40,24,0.5);
+  --ink-faint: rgba(15,40,24,0.07);
+  --shadow: rgba(15,40,24,0.1);
+  --nav-h: 80px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--bg);
+  background-image: radial-gradient(ellipse at 30% 0%, rgba(212,146,74,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 100%, rgba(42,125,79,0.06) 0%, transparent 50%);
+  color: var(--ink);
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 430px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ── BOTTOM NAV ── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  height: var(--nav-h);
+  background: rgba(244,250,246,0.97);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(42,125,79,0.1);
+  display: flex;
+  align-items: stretch;
+  z-index: 50;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--ink-dim);
+  font-family: 'Jost', sans-serif;
+  position: relative;
+  transition: color 0.2s;
+  padding-top: 8px;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 0 0 2px 2px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav-item.active { color: var(--primary); }
+.nav-item.active::before { opacity: 1; }
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon svg { width: 22px; height: 22px; stroke-width: 1.5; }
+.nav-label { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+
+/* ── SCREENS ── */
+.screen { display: none; flex-direction: column; flex: 1; overflow: hidden; padding-bottom: var(--nav-h); }
+.screen.active { display: flex; }
+
+/* ── BEACON HEADER ── */
+.beacon-header {
+  padding: 52px 24px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.beacon-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.beacon-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  font-style: italic;
+}
+
+.beacon-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(42,125,79,0.4);
+}
+
+.header-actions { display: flex; align-items: center; gap: 10px; }
+
+.pill-btn {
+  background: var(--primary-dim);
+  border: 1px solid var(--primary-border);
+  border-radius: 40px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.icon-btn {
+  background: var(--ink-faint);
+  border: 1px solid rgba(26,32,53,0.1);
+  color: var(--ink-dim);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.icon-btn svg { width: 16px; height: 16px; stroke-width: 1.5; }
+
+/* ── STRATEGY BANNER ── */
+.strategy-banner {
+  margin: 8px 20px 12px;
+  background: linear-gradient(135deg, rgba(42,125,79,0.08), rgba(42,125,79,0.02));
+  border: 1px solid var(--primary-border);
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.strategy-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-dim);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+
+.strategy-text { flex: 1; }
+.strategy-title { font-size: 13px; font-weight: 600; color: var(--primary); margin-bottom: 2px; }
+.strategy-sub { font-size: 11px; color: var(--ink-dim); line-height: 1.4; }
+.strategy-arrow { color: var(--primary); font-size: 18px; }
+
+/* ── FILTERS ── */
+.filters {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-shrink: 0;
+}
+.filters::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 40px;
+  border: 1.5px solid rgba(26,32,53,0.07);
+  background: transparent;
+  color: var(--ink-dim);
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.filter-btn.active {
+  background: var(--sun);
+  border-color: var(--sun);
+  color: #F4F6FB;
+  font-weight: 700;
+}
+
+/* ── CARD STACK ── */
+.stack-area { flex: 1; position: relative; padding: 0 20px; overflow: hidden; }
+.card-stack { position: relative; width: 100%; height: 100%; }
+
+.tip-card {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 8px);
+  border-radius: 24px;
+  padding: 28px 28px 24px;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.08s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 24px var(--shadow);
+  will-change: transform;
+}
+
+.tip-card.back-2 { transform: scale(0.92) translateY(16px); opacity: 0.4; pointer-events: none; }
+.tip-card.back-1 { transform: scale(0.96) translateY(8px); opacity: 0.7; pointer-events: none; }
+.tip-card.active-card { transform: scale(1) translateY(0); opacity: 1; z-index: 10; }
+.tip-card.flying-right { transition: transform 0.4s ease, opacity 0.4s ease !important; transform: translateX(130%) rotate(18deg) !important; opacity: 0; }
+.tip-card.flying-left { transition: transform 0.4s ease, opacity 0.4s ease !important; transform: translateX(-130%) rotate(-18deg) !important; opacity: 0; }
+
+.theme-gold { background: linear-gradient(160deg, #EBF7F1 0%, #FFFFFF 70%); border: 1px solid rgba(42,125,79,0.15); }
+.theme-terra { background: linear-gradient(160deg, #E8F8F2 0%, #FFFFFF 70%); border: 1px solid rgba(224,123,84,0.2); }
+.theme-sage { background: linear-gradient(160deg, #ECF6F0 0%, #FFFFFF 70%); border: 1px solid rgba(46,168,126,0.2); }
+.theme-sky { background: linear-gradient(160deg, #E8F4FF 0%, #FFFFFF 70%); border: 1px solid rgba(74,159,212,0.2); }
+.theme-lavender { background: linear-gradient(160deg, #F2EEF8 0%, #FFFFFF 70%); border: 1px solid rgba(124,111,205,0.2); }
+
+.card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+.card-category-pill {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 40px;
+  background: var(--ink-faint);
+  color: var(--ink-dim);
+}
+
+.card-number { font-size: 11px; color: rgba(26,32,53,0.2); font-weight: 500; }
+
+.card-title { 
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.card-body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(26,32,53,0.7);
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.card-body::-webkit-scrollbar { display: none; }
+.card-body strong { color: var(--ink); font-weight: 600; }
+
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; flex-shrink: 0; }
+
+.card-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 40px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.tag-gold { background: rgba(212,146,74,0.12); color: #A06820; border: 1px solid rgba(212,146,74,0.3); }
+.tag-terra { background: rgba(224,123,84,0.1); color: #C05A30; border: 1px solid rgba(224,123,84,0.3); }
+.tag-sage { background: rgba(42,125,79,0.1); color: #1E6640; border: 1px solid rgba(42,125,79,0.3); }
+.tag-sky { background: rgba(107,143,175,0.1); color: #3A6A90; border: 1px solid rgba(107,143,175,0.3); }
+.tag-lavender { background: rgba(155,127,168,0.1); color: #6A4A7A; border: 1px solid rgba(155,127,168,0.3); }
+
+.card-scroll-hint { font-size: 10px; color: rgba(26,32,53,0.18); letter-spacing: 1px; }
+
+.swipe-yes {
+  position: absolute; top: 28px; left: 20px;
+  background: var(--growth); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  padding: 7px 14px; border-radius: 8px;
+  opacity: 0; transform: rotate(-10deg);
+  pointer-events: none; z-index: 20;
+  text-transform: uppercase;
+  border: 1.5px solid #7AAF92;
+}
+
+.swipe-no {
+  position: absolute; top: 28px; right: 20px;
+  background: var(--terra); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  padding: 7px 14px; border-radius: 8px;
+  opacity: 0; transform: rotate(10deg);
+  pointer-events: none; z-index: 20;
+  text-transform: uppercase;
+  border: 1.5px solid #D4896F;
+}
+
+/* ── ACTIONS ── */
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 14px 24px 10px;
+  flex-shrink: 0;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+.action-btn:active { transform: scale(0.9); }
+
+.btn-skip { width: 54px; height: 54px; background: rgba(224,123,84,0.1); border: 1.5px solid rgba(224,123,84,0.4); color: #C05A30; }
+.btn-skip svg { width: 20px; height: 20px; stroke-width: 2; }
+.btn-save { width: 68px; height: 68px; background: var(--primary); box-shadow: 0 6px 28px rgba(42,125,79,0.35); }
+.btn-save svg { width: 26px; height: 26px; stroke: #FFFFFF; stroke-width: 2; fill: #FFFFFF; }
+.btn-bookmark { width: 54px; height: 54px; background: rgba(74,159,212,0.1); border: 1.5px solid rgba(74,159,212,0.35); color: #2A7AB8; }
+.btn-bookmark svg { width: 18px; height: 18px; stroke-width: 1.8; }
+
+.swipe-hint { text-align: center; font-size: 10px; color: rgba(26,32,53,0.18); letter-spacing: 1.5px; padding-bottom: 6px; flex-shrink: 0; text-transform: uppercase; }
+
+/* ── DONE SCREEN ── */
+.done-screen { display: none; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 40px; }
+.done-screen.show { display: flex; }
+.done-icon { font-size: 56px; margin-bottom: 20px; }
+.done-screen h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; margin-bottom: 10px; }
+.done-screen p { font-size: 13px; color: var(--ink-dim); line-height: 1.6; margin-bottom: 28px; }
+.restart-btn { background: var(--primary); color: #FFFFFF; border: none; padding: 14px 32px; border-radius: 40px; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; letter-spacing: 0.3px; }
+
+/* ── CALCULATORS SCREEN ── */
+.screen-header { padding: 52px 24px 12px; flex-shrink: 0; }
+.screen-title { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; }
+.screen-sub { font-size: 13px; color: var(--ink-dim); margin-top: 4px; line-height: 1.4; }
+
+.calc-list { flex: 1; overflow-y: auto; padding: 8px 20px 20px; display: flex; flex-direction: column; gap: 10px; }
+
+.calc-card {
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 18px 20px;
+  border: 1px solid rgba(26,32,53,0.06);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.calc-card:active { border-color: var(--primary-border); background: var(--surface2); }
+
+.calc-card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 22px;
+}
+
+.ci-gold { background: rgba(201,151,74,0.12); }
+.ci-terra { background: rgba(224,123,84,0.1); }
+.ci-sage { background: rgba(92,140,106,0.12); }
+.ci-sky { background: rgba(74,159,212,0.1); }
+.ci-rose { background: rgba(168,84,104,0.12); }
+
+.calc-card-info { flex: 1; }
+.calc-card-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 3px; letter-spacing: -0.2px; }
+.calc-card-info p { font-size: 12px; color: var(--ink-dim); line-height: 1.4; }
+.calc-card-arrow { color: rgba(26,32,53,0.25); font-size: 20px; }
+
+/* ── CALC DETAIL ── */
+.calc-detail {
+  position: fixed; inset: 0;
+  background: var(--bg);
+  z-index: 60;
+  display: none;
+  flex-direction: column;
+  max-width: 430px;
+  margin: 0 auto;
+  animation: slideUp 0.3s ease;
+}
+.calc-detail.open { display: flex; }
+
+.calc-detail-header {
+  padding: 52px 24px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid rgba(26,32,53,0.07);
+  flex-shrink: 0;
+}
+
+.back-btn {
+  background: var(--ink-faint);
+  border: none;
+  color: var(--ink);
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.back-btn svg { width: 16px; height: 16px; stroke-width: 2; }
+
+.calc-detail-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; }
+.calc-detail-body { flex: 1; overflow-y: auto; padding: 22px 20px; }
+
+/* ── FORM ── */
+.c-field { margin-bottom: 16px; }
+.c-field label { display: block; font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 7px; font-weight: 600; }
+.c-field input, .c-field select {
+  width: 100%; padding: 13px 16px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(26,32,53,0.1);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  outline: none;
+  transition: border 0.2s;
+}
+.c-field input:focus, .c-field select:focus { border-color: var(--primary); }
+.c-field input::placeholder { color: rgba(26,32,53,0.2); }
+.c-field select option { background: #FFFFFF; }
+
+.c-btn {
+  width: 100%; padding: 15px;
+  border-radius: 14px; border: none;
+  background: var(--primary); color: #FFFFFF;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; margin-top: 4px;
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s;
+}
+.c-btn:active { opacity: 0.85; }
+
+.c-result {
+  margin-top: 22px;
+  background: linear-gradient(160deg, #EBF7F1 0%, #FFFFFF 100%);
+  border: 1px solid var(--primary-border);
+  border-radius: 20px;
+  padding: 20px;
+  display: none;
+}
+.c-result.show { display: block; }
+.c-result-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); opacity: 0.7; }
+.c-result-main { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 600; color: var(--primary); margin: 4px 0 10px; line-height: 1; }
+.c-result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.c-result-cell { background: var(--ink-faint); border-radius: 12px; padding: 12px; }
+.c-cell-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--ink); }
+.c-cell-lbl { font-size: 9px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 1.2px; margin-top: 2px; }
+.c-result-sub { font-size: 12px; color: var(--ink-dim); line-height: 1.6; margin-top: 10px; }
+
+.c-insight {
+  background: rgba(42,125,79,0.08);
+  border: 1px solid rgba(42,125,79,0.25);
+  border-radius: 12px;
+  padding: 13px 15px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #1E6640;
+  line-height: 1.55;
+}
+
+.toggle-row { display: flex; background: var(--surface); border-radius: 12px; padding: 4px; margin-bottom: 20px; }
+.toggle-opt { flex: 1; padding: 10px; text-align: center; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; color: var(--ink-dim); border: none; background: none; font-family: 'Jost', sans-serif; }
+.toggle-opt.active { background: var(--primary); color: #FFFFFF; }
+
+.amort-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 12px; }
+.amort-table th { text-align: left; padding: 8px 6px; color: var(--ink-dim); font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; border-bottom: 1px solid rgba(26,32,53,0.07); }
+.amort-table td { padding: 8px 6px; border-bottom: 1px solid rgba(26,32,53,0.04); color: rgba(26,32,53,0.75); }
+.amort-show-more { width: 100%; padding: 12px; background: var(--ink-faint); border: 1px solid rgba(26,32,53,0.1); border-radius: 10px; color: var(--ink-dim); font-family: 'Jost', sans-serif; font-size: 12px; cursor: pointer; margin-top: 8px; }
+
+/* ── SAVED PANEL ── */
+.saved-panel { position: fixed; inset: 0; background: var(--bg); z-index: 100; display: none; flex-direction: column; max-width: 430px; margin: 0 auto; animation: slideUp 0.3s ease; }
+.saved-panel.open { display: flex; }
+.panel-header { padding: 52px 24px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(26,32,53,0.07); flex-shrink: 0; }
+.panel-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; }
+.close-btn { background: var(--ink-faint); border: none; color: var(--ink); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.close-btn svg { width: 14px; height: 14px; stroke-width: 2; }
+.saved-list { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.saved-item { background: var(--surface); border-radius: 16px; padding: 16px; display: flex; gap: 14px; align-items: flex-start; border: 1px solid rgba(26,32,53,0.05); }
+.saved-emoji { font-size: 26px; flex-shrink: 0; }
+.saved-content h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.saved-content p { font-size: 12px; color: var(--ink-dim); line-height: 1.5; }
+.empty-state { text-align: center; padding: 60px 24px; color: var(--ink-dim); }
+.empty-icon { font-size: 44px; margin-bottom: 12px; opacity: 0.6; }
+.empty-state p { font-size: 13px; line-height: 1.6; }
+
+/* ── STRATEGY PANEL ── */
+.strategy-panel { position: fixed; inset: 0; background: var(--bg); z-index: 110; display: none; flex-direction: column; max-width: 430px; margin: 0 auto; animation: slideUp 0.3s ease; }
+.strategy-panel.open { display: flex; }
+.strategy-body { flex: 1; overflow-y: auto; padding: 20px; }
+
+.strategy-section { margin-bottom: 24px; }
+.strategy-section-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 12px; font-weight: 600; }
+
+.profile-field { margin-bottom: 14px; }
+.profile-field label { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 6px; }
+.profile-field input, .profile-field select {
+  width: 100%; padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(26,32,53,0.1);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+}
+.profile-field input:focus, .profile-field select:focus { border-color: var(--sun); }
+.profile-field select option { background: #FFFFFF; }
+
+.goal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.goal-chip {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(26,32,53,0.1);
+  background: var(--surface);
+  color: var(--ink-dim);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  font-family: 'Jost', sans-serif;
+  line-height: 1.3;
+}
+.goal-chip.selected { border-color: var(--sun); background: var(--primary-dim); color: var(--sun); }
+
+.strategy-save-btn { width: 100%; padding: 15px; border-radius: 14px; border: none; background: var(--primary); color: #FFFFFF; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+
+.strategy-result {
+  background: var(--surface);
+  border: 1px solid var(--primary-border);
+  border-radius: 16px;
+  padding: 18px;
+  margin-top: 16px;
+  display: none;
+}
+.strategy-result.show { display: block; }
+.strategy-result-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+.strategy-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(26,32,53,0.06);
+}
+.strategy-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.step-num { width: 24px; height: 24px; background: var(--primary-dim); border: 1px solid var(--primary-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--primary); flex-shrink: 0; margin-top: 1px; }
+.step-text { font-size: 13px; color: rgba(26,32,53,0.8); line-height: 1.55; }
+.step-text strong { color: var(--ink); }
+
+/* ── ADMIN ── */
+.admin-panel { position: fixed; inset: 0; background: var(--bg); z-index: 200; display: none; flex-direction: column; max-width: 430px; margin: 0 auto; animation: slideUp 0.3s ease; }
+.admin-panel.open { display: flex; }
+.admin-tabs { display: flex; border-bottom: 1px solid rgba(26,32,53,0.07); flex-shrink: 0; }
+.admin-tab { flex: 1; padding: 14px; background: none; border: none; color: var(--ink-dim); font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; letter-spacing: 0.3px; }
+.admin-tab.active { color: var(--sun); border-bottom-color: var(--sun); }
+.admin-body { flex: 1; overflow-y: auto; padding: 20px; }
+.admin-field { margin-bottom: 14px; }
+.admin-field label { display: block; font-size: 10px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 6px; }
+.admin-field input, .admin-field textarea, .admin-field select { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1.5px solid rgba(26,32,53,0.1); background: var(--surface); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 14px; outline: none; transition: border 0.2s; }
+.admin-field input:focus, .admin-field textarea:focus, .admin-field select:focus { border-color: var(--sun); }
+.admin-field textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
+.admin-field select option { background: #FFFFFF; }
+.emoji-grid { display: grid; grid-template-columns: repeat(8,1fr); gap: 6px; margin-top: 8px; }
+.emoji-opt { background: var(--surface); border: 1.5px solid transparent; border-radius: 8px; padding: 6px; font-size: 18px; cursor: pointer; text-align: center; transition: all 0.15s; }
+.emoji-opt.selected { border-color: var(--sun); background: var(--primary-dim); }
+.admin-save-btn { width: 100%; padding: 15px; border-radius: 14px; border: none; background: var(--primary); color: #FFFFFF; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+.admin-card-item { background: var(--surface); border-radius: 14px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; border: 1px solid rgba(26,32,53,0.05); margin-bottom: 10px; }
+.aci-emoji { font-size: 22px; flex-shrink: 0; }
+.aci-info { flex: 1; }
+.aci-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.aci-cat { font-size: 11px; color: var(--ink-dim); }
+.aci-del { background: rgba(224,123,84,0.1); border: 1px solid rgba(224,123,84,0.3); color: #C05A30; border-radius: 8px; padding: 6px 10px; font-size: 11px; cursor: pointer; flex-shrink: 0; }
+.pw-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; padding: 40px; text-align: center; }
+.pw-screen h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+.pw-screen p { font-size: 13px; color: var(--ink-dim); margin-bottom: 24px; }
+.pw-input { width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid rgba(26,32,53,0.07); background: var(--surface); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 18px; text-align: center; letter-spacing: 6px; outline: none; margin-bottom: 12px; }
+.pw-input:focus { border-color: var(--sun); }
+.pw-btn { width: 100%; padding: 14px; border-radius: 12px; border: none; background: var(--primary); color: #FFFFFF; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; }
+.pw-error { color: var(--terra); font-size: 13px; margin-top: 8px; display: none; }
+.admin-badge { display: inline-block; background: var(--primary-dim); border: 1px solid var(--primary-border); color: var(--primary); border-radius: 40px; padding: 2px 10px; font-size: 11px; font-weight: 600; margin-left: 8px; }
+
+/* ── LINGO SCREEN ── */
+.lingo-search-wrap { padding: 8px 20px 8px; flex-shrink: 0; }
+.lingo-search { width: 100%; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(26,32,53,0.1); background: var(--surface); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 14px; outline: none; transition: border 0.2s; }
+.lingo-search:focus { border-color: var(--sun); }
+.lingo-search::placeholder { color: rgba(26,32,53,0.2); }
+.lingo-cats { display: flex; gap: 8px; padding: 8px 20px 10px; overflow-x: auto; scrollbar-width: none; flex-shrink: 0; }
+.lingo-cats::-webkit-scrollbar { display: none; }
+.lingo-cat-btn { flex-shrink: 0; padding: 7px 14px; border-radius: 40px; border: 1.5px solid rgba(26,32,53,0.07); background: transparent; color: var(--ink-dim); font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap; letter-spacing: 0.3px; }
+.lingo-cat-btn.active { background: var(--primary); border-color: var(--primary); color: #FFFFFF; font-weight: 700; }
+.lingo-list { flex: 1; overflow-y: auto; padding: 4px 20px 20px; }
+.lingo-item { background: var(--surface); border-radius: 14px; margin-bottom: 8px; border: 1px solid rgba(26,32,53,0.06); overflow: hidden; cursor: pointer; }
+.lingo-item-header { padding: 15px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.lingo-item-left { display: flex; align-items: center; gap: 12px; }
+.lingo-emoji { font-size: 20px; flex-shrink: 0; }
+.lingo-term { font-size: 14px; font-weight: 600; }
+.lingo-badge { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 40px; flex-shrink: 0; }
+.lb-buyer { background: rgba(74,159,212,0.1); color: #2A7AB8; border: 1px solid rgba(74,159,212,0.3); }
+.lb-seller { background: rgba(224,123,84,0.1); color: #C05A30; border: 1px solid rgba(224,123,84,0.3); }
+.lb-mortgage { background: rgba(212,146,74,0.1); color: #A06820; border: 1px solid rgba(212,146,74,0.3); }
+.lb-general { background: rgba(46,168,126,0.1); color: #1A8C68; border: 1px solid rgba(46,168,126,0.3); }
+.lb-invest { background: rgba(124,111,205,0.1); color: #5A4DB8; border: 1px solid rgba(124,111,205,0.3); }
+.lingo-chevron { color: var(--ink-dim); font-size: 14px; transition: transform 0.2s; }
+.lingo-item.open .lingo-chevron { transform: rotate(90deg); }
+.lingo-body { display: none; padding: 0 16px 16px; border-top: 1px solid rgba(26,32,53,0.05); }
+.lingo-item.open .lingo-body { display: block; }
+.lingo-def { font-size: 13px; line-height: 1.7; color: rgba(26,32,53,0.7); padding-top: 12px; }
+.lingo-def strong { color: var(--ink); }
+.lingo-tip { background: rgba(212,146,74,0.08); border: 1px solid rgba(212,146,74,0.22); border-radius: 10px; padding: 10px 12px; margin-top: 10px; font-size: 12px; color: #A06820; line-height: 1.55; }
+.lingo-empty { text-align: center; padding: 60px 24px; color: var(--ink-dim); font-size: 13px; }
+
+/* ── TOAST ── */
+.toast { position: fixed; bottom: 92px; left: 50%; transform: translateX(-50%); background: var(--growth); color: white; padding: 10px 22px; border-radius: 40px; font-size: 12px; font-weight: 600; z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; letter-spacing: 0.5px; }
+.toast.show { opacity: 1; }
+
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+/* ══════════════════════════════════════
+   DASHBOARD SYSTEM
+══════════════════════════════════════ */
+
+.dashboard-btn {
+  display: flex; align-items: center; gap: 7px;
+  background: var(--primary); color: #fff;
+  border: none; border-radius: 40px;
+  padding: 8px 16px; font-size: 12px; font-weight: 600;
+  font-family: 'Jost', sans-serif; cursor: pointer;
+  letter-spacing: 0.3px; position: relative;
+  box-shadow: 0 2px 12px rgba(42,125,79,0.3);
+  transition: opacity 0.2s;
+}
+.dashboard-btn:active { opacity: 0.85; }
+.notif-dot {
+  width: 7px; height: 7px; background: var(--sun);
+  border-radius: 50%; position: absolute;
+  top: 5px; right: 5px;
+}
+
+/* Dashboard Full-Screen Panel */
+.dash-panel {
+  position: fixed; inset: 0; background: var(--bg);
+  z-index: 300; display: none; flex-direction: column;
+  max-width: 430px; margin: 0 auto;
+  animation: slideUp 0.3s ease;
+}
+.dash-panel.open { display: flex; }
+
+.dash-header {
+  padding: 52px 24px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--ink-faint);
+  flex-shrink: 0;
+  background: var(--surface);
+}
+.dash-header-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 600; color: var(--ink);
+}
+.dash-header-left p { font-size: 11px; color: var(--ink-dim); margin-top: 2px; }
+
+/* Onboarding */
+.dash-onboard {
+  flex: 1; overflow-y: auto; padding: 24px 20px;
+}
+.onboard-step { display: none; }
+.onboard-step.active { display: block; }
+
+.onboard-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 600; color: var(--ink);
+  margin-bottom: 6px; line-height: 1.2;
+}
+.onboard-sub { font-size: 13px; color: var(--ink-dim); margin-bottom: 24px; line-height: 1.5; }
+
+.profile-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.profile-type-card {
+  background: var(--surface); border: 2px solid var(--ink-faint);
+  border-radius: 16px; padding: 18px 14px; text-align: center;
+  cursor: pointer; transition: all 0.2s;
+}
+.profile-type-card:active { transform: scale(0.97); }
+.profile-type-card.selected { border-color: var(--primary); background: var(--primary-dim); }
+.profile-type-card .ptc-icon { font-size: 30px; margin-bottom: 8px; }
+.profile-type-card .ptc-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.profile-type-card .ptc-desc { font-size: 11px; color: var(--ink-dim); margin-top: 3px; line-height: 1.3; }
+
+.d-field { margin-bottom: 14px; }
+.d-field label {
+  display: block; font-size: 10px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--ink-dim);
+  margin-bottom: 6px; font-weight: 600;
+}
+.d-field input, .d-field select, .d-field textarea {
+  width: 100%; padding: 12px 14px; border-radius: 12px;
+  border: 1.5px solid var(--ink-faint);
+  background: var(--surface); color: var(--ink);
+  font-family: 'Jost', sans-serif; font-size: 14px;
+  outline: none; transition: border 0.2s;
+}
+.d-field input:focus, .d-field select:focus, .d-field textarea:focus { border-color: var(--primary); }
+.d-field input::placeholder, .d-field textarea::placeholder { color: rgba(15,40,24,0.2); }
+.d-field select option { background: #fff; }
+.d-field textarea { min-height: 80px; resize: vertical; line-height: 1.5; }
+
+.d-btn {
+  width: 100%; padding: 15px; border-radius: 14px; border: none;
+  background: var(--primary); color: #fff;
+  font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 600;
+  cursor: pointer; margin-top: 8px; letter-spacing: 0.3px;
+  transition: opacity 0.2s;
+}
+.d-btn:active { opacity: 0.85; }
+.d-btn-outline {
+  width: 100%; padding: 14px; border-radius: 14px;
+  border: 1.5px solid var(--primary-border);
+  background: transparent; color: var(--primary);
+  font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 600;
+  cursor: pointer; margin-top: 8px;
+}
+
+/* Dashboard Home */
+.dash-home { flex: 1; overflow-y: auto; padding: 0 0 20px; }
+
+.dash-welcome {
+  padding: 20px 20px 16px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff; margin-bottom: 0;
+}
+.dash-welcome h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; }
+.dash-welcome p { font-size: 12px; opacity: 0.85; margin-top: 3px; }
+.dash-welcome-type {
+  display: inline-block; background: rgba(255,255,255,0.2);
+  border-radius: 40px; padding: 4px 12px; font-size: 11px;
+  font-weight: 600; margin-top: 8px; letter-spacing: 0.5px;
+}
+
+/* Notification strip */
+.notif-strip {
+  background: var(--sun-dim); border-bottom: 1px solid var(--sun-border);
+  padding: 10px 20px; display: none;
+}
+.notif-strip.has-notifs { display: block; }
+.notif-strip-title { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #8A5A00; margin-bottom: 6px; }
+.notif-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0; border-bottom: 1px solid rgba(245,166,35,0.15);
+}
+.notif-item:last-child { border-bottom: none; }
+.notif-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.notif-text { flex: 1; font-size: 12px; color: #5A3A00; line-height: 1.4; }
+.notif-text strong { color: #3A2000; }
+.notif-due { font-size: 10px; color: #8A5A00; margin-top: 2px; font-weight: 600; }
+
+/* Dashboard Sections */
+.dash-section { padding: 16px 20px; border-bottom: 1px solid var(--ink-faint); }
+.dash-section:last-child { border-bottom: none; }
+.dash-section-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;
+}
+.dash-section-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--primary);
+}
+.dash-edit-btn {
+  font-size: 11px; color: var(--primary); background: var(--primary-dim);
+  border: 1px solid var(--primary-border); border-radius: 40px;
+  padding: 4px 10px; cursor: pointer; font-family: 'Jost', sans-serif;
+}
+.dash-agent-badge {
+  font-size: 10px; background: var(--sun-dim); color: #8A5A00;
+  border: 1px solid var(--sun-border); border-radius: 40px;
+  padding: 3px 8px; font-weight: 600;
+}
+
+/* Stat cards */
+.dash-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dash-stat {
+  background: var(--surface); border: 1px solid var(--ink-faint);
+  border-radius: 14px; padding: 14px;
+}
+.dash-stat-val {
+  font-family: 'Cormorant Garamond', serif; font-size: 24px;
+  font-weight: 600; color: var(--primary); line-height: 1;
+}
+.dash-stat-lbl { font-size: 10px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; }
+
+/* Progress bar */
+.progress-wrap { background: var(--ink-faint); border-radius: 40px; height: 8px; margin: 8px 0; overflow: hidden; }
+.progress-bar { height: 100%; background: var(--primary); border-radius: 40px; transition: width 0.5s ease; }
+
+/* Checklist */
+.dash-checklist { display: flex; flex-direction: column; gap: 8px; }
+.check-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--surface); border: 1px solid var(--ink-faint);
+  border-radius: 12px; padding: 12px 14px; cursor: pointer;
+}
+.check-item.done { opacity: 0.5; }
+.check-box {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid var(--primary-border); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px; transition: all 0.2s;
+}
+.check-item.done .check-box { background: var(--primary); border-color: var(--primary); }
+.check-item.done .check-box::after { content: '✓'; color: #fff; font-size: 11px; font-weight: 700; }
+.check-text { flex: 1; font-size: 13px; color: var(--ink); line-height: 1.4; }
+.check-due { font-size: 10px; color: var(--ink-dim); margin-top: 2px; }
+
+/* Vendor cards */
+.vendor-list { display: flex; flex-direction: column; gap: 8px; }
+.vendor-item {
+  background: var(--surface); border: 1px solid var(--ink-faint);
+  border-radius: 12px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.vendor-icon { font-size: 22px; flex-shrink: 0; }
+.vendor-info { flex: 1; }
+.vendor-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+.vendor-detail { font-size: 11px; color: var(--ink-dim); margin-top: 2px; }
+.vendor-call {
+  background: var(--primary-dim); border: 1px solid var(--primary-border);
+  color: var(--primary); border-radius: 8px; padding: 6px 10px;
+  font-size: 11px; font-weight: 600; text-decoration: none;
+  font-family: 'Jost', sans-serif;
+}
+
+/* Property portfolio (investor) */
+.prop-list { display: flex; flex-direction: column; gap: 10px; }
+.prop-card {
+  background: var(--surface); border: 1px solid var(--ink-faint);
+  border-radius: 14px; padding: 14px;
+}
+.prop-address { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.prop-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.prop-stat { text-align: center; }
+.prop-stat-val { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--primary); }
+.prop-stat-lbl { font-size: 9px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.8px; }
+
+/* Edit modal */
+.edit-modal {
+  position: fixed; inset: 0; background: rgba(15,40,24,0.5);
+  z-index: 400; display: none; align-items: flex-end;
+  max-width: 430px; margin: 0 auto;
+}
+.edit-modal.open { display: flex; }
+.edit-modal-inner {
+  background: var(--bg); border-radius: 24px 24px 0 0;
+  padding: 24px 20px 40px; width: 100%;
+  animation: slideUp 0.3s ease; max-height: 80vh; overflow-y: auto;
+}
+.edit-modal-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 22px;
+  font-weight: 600; margin-bottom: 16px; color: var(--ink);
+}
+
+/* Dashboard tabs */
+.dash-tabs {
+  display: flex; border-bottom: 1px solid var(--ink-faint);
+  background: var(--surface); flex-shrink: 0; overflow-x: auto;
+  scrollbar-width: none;
+}
+.dash-tabs::-webkit-scrollbar { display: none; }
+.dash-tab {
+  flex-shrink: 0; padding: 12px 16px; background: none; border: none;
+  color: var(--ink-dim); font-family: 'Jost', sans-serif; font-size: 12px;
+  font-weight: 500; cursor: pointer; border-bottom: 2px solid transparent;
+  transition: all 0.2s; white-space: nowrap;
+}
+.dash-tab.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+
+.dash-tab-content { display: none; }
+.dash-tab-content.active { display: block; }
+
+/* Agent note */
+.agent-note {
+  background: var(--sun-dim); border: 1px solid var(--sun-border);
+  border-radius: 12px; padding: 12px 14px; margin-top: 10px;
+  font-size: 12px; color: #5A3A00; line-height: 1.5;
+}
+.agent-note strong { color: #3A2000; }
+
+/* Email reminder note */
+.email-note {
+  background: var(--primary-dim); border: 1px solid var(--primary-border);
+  border-radius: 10px; padding: 10px 14px; margin-top: 10px;
+  font-size: 11px; color: var(--primary); line-height: 1.5;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════ TIPS SCREEN ══════ -->
+<div class="screen active" id="screen-tips">
+  <div class="beacon-header">
+    <div class="beacon-logo">
+      <span class="beacon-wordmark">Propertunities</span>
+      <div class="beacon-dot"></div>
+    </div>
+    <div class="header-actions">
+      <div class="pill-btn" onclick="openSaved()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+        <span id="savedCount">0</span> Saved
+      </div>
+<button class="dashboard-btn" onclick="openDashboard()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        My Dashboard
+        <span class="notif-dot" id="notifDot" style="display:none;"></span>
+      </button>
+      <button class="icon-btn" onclick="openAdmin()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="strategy-banner" onclick="openStrategy()">
+    <div class="strategy-icon">🧭</div>
+    <div class="strategy-text">
+      <div class="strategy-title">Build Your Personal Strategy</div>
+      <div class="strategy-sub">Tell us your situation — get a roadmap made for you</div>
+    </div>
+    <div class="strategy-arrow">›</div>
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+    <button class="filter-btn" onclick="filterCards('equity',this)">Equity</button>
+    <button class="filter-btn" onclick="filterCards('tax',this)">Tax</button>
+    <button class="filter-btn" onclick="filterCards('mortgage',this)">Mortgage</button>
+    <button class="filter-btn" onclick="filterCards('invest',this)">Investing</button>
+    <button class="filter-btn" onclick="filterCards('maintain',this)">Maintenance</button>
+  </div>
+
+  <div class="stack-area">
+    <div class="card-stack" id="cardStack"></div>
+    <div class="done-screen" id="doneScreen">
+      <div class="done-icon">✦</div>
+      <h2>You are all caught up</h2>
+      <p>You have seen all the tips in this category.<br>Check your saved cards or start over.</p>
+      <button class="restart-btn" onclick="restartCards()">Start Over</button>
+    </div>
+  </div>
+
+  <div class="swipe-hint" id="swipeHint">← skip &nbsp;&nbsp;·&nbsp;&nbsp; save →</div>
+  <div class="actions">
+    <button class="action-btn btn-skip" onclick="swipeLeft()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="action-btn btn-save" onclick="swipeRight()">
+      <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+    </button>
+    <button class="action-btn btn-bookmark" onclick="openSaved()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ══════ CALCULATORS SCREEN ══════ -->
+<div class="screen" id="screen-calc">
+  <div class="screen-header">
+    <div class="screen-title">Calculators</div>
+    <div class="screen-sub">Run your real numbers</div>
+  </div>
+  <div class="calc-list">
+    <div class="calc-card" onclick="openCalc('equity')">
+      <div class="calc-card-icon ci-gold">📊</div>
+      <div class="calc-card-info"><h3>Equity Calculator</h3><p>See exactly how much of your home you own right now</p></div>
+      <div class="calc-card-arrow">›</div>
+    </div>
+    <div class="calc-card" onclick="openCalc('affordability')">
+      <div class="calc-card-icon ci-sage">💰</div>
+      <div class="calc-card-info"><h3>Home Affordability</h3><p>How much home can you actually afford?</p></div>
+      <div class="calc-card-arrow">›</div>
+    </div>
+    <div class="calc-card" onclick="openCalc('amortization')">
+      <div class="calc-card-icon ci-sky">📅</div>
+      <div class="calc-card-info"><h3>Amortization Schedule</h3><p>Full breakdown — principal vs. interest every month</p></div>
+      <div class="calc-card-arrow">›</div>
+    </div>
+    <div class="calc-card" onclick="openCalc('appreciation')">
+      <div class="calc-card-icon ci-terra">📈</div>
+      <div class="calc-card-info"><h3>Home Value Tracker</h3><p>What will your home be worth in 5, 10, 20 years?</p></div>
+      <div class="calc-card-arrow">›</div>
+    </div>
+    <div class="calc-card" onclick="openCalc('refi')">
+      <div class="calc-card-icon ci-rose">🔁</div>
+      <div class="calc-card-info"><h3>Refinance Savings</h3><p>Is refinancing worth it? Find your break-even</p></div>
+      <div class="calc-card-arrow">›</div>
+    </div>
+    <div class="calc-card" onclick="openCalc('makememove')">
+      <div class="calc-card-icon ci-gold">🎯</div>
+      <div class="calc-card-info"><h3>Make Me Move Number</h3><p>What price would actually make you buy — or sell?</p></div>
+      <div class="calc-card-arrow">›</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ LINGO SCREEN ══════ -->
+<div class="screen" id="screen-lingo">
+  <div class="screen-header">
+    <div class="screen-title">Real Estate Lingo</div>
+    <div class="screen-sub">Learn the language before you need it</div>
+  </div>
+  <div class="lingo-search-wrap">
+    <input class="lingo-search" type="text" placeholder="Search terms..." oninput="filterLingo(this.value)">
+  </div>
+  <div class="lingo-cats">
+    <button class="lingo-cat-btn active" onclick="filterLingoCat('all',this)">All</button>
+    <button class="lingo-cat-btn" onclick="filterLingoCat('buyer',this)">Buying</button>
+    <button class="lingo-cat-btn" onclick="filterLingoCat('seller',this)">Selling</button>
+    <button class="lingo-cat-btn" onclick="filterLingoCat('mortgage',this)">Mortgage</button>
+    <button class="lingo-cat-btn" onclick="filterLingoCat('general',this)">General</button>
+    <button class="lingo-cat-btn" onclick="filterLingoCat('invest',this)">Investing</button>
+  </div>
+  <div class="lingo-list" id="lingoList"></div>
+</div>
+
+<!-- ══════ BOTTOM NAV ══════ -->
+<div class="bottom-nav">
+  <button class="nav-item active" onclick="showScreen('tips',this)">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    </div>
+    <div class="nav-label">Tips</div>
+  </button>
+  <button class="nav-item" onclick="showScreen('calc',this)">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+    </div>
+    <div class="nav-label">Calculate</div>
+  </button>
+  <button class="nav-item" onclick="showScreen('lingo',this)">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+    </div>
+    <div class="nav-label">Lingo</div>
+  </button>
+</div>
+
+<!-- ══════ CALC PANELS ══════ -->
+<div class="calc-detail" id="calc-equity">
+  <div class="calc-detail-header">
+    <button class="back-btn" onclick="closeCalc('equity')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="calc-detail-title">Equity Calculator</div>
+  </div>
+  <div class="calc-detail-body">
+    <div class="c-field"><label>Current Home Value ($)</label><input type="number" id="eq_val" placeholder="e.g. 350,000"></div>
+    <div class="c-field"><label>Remaining Mortgage Balance ($)</label><input type="number" id="eq_bal" placeholder="e.g. 220,000"></div>
+    <div class="c-field"><label>Original Purchase Price ($) — optional</label><input type="number" id="eq_orig" placeholder="e.g. 295,000"></div>
+    <button class="c-btn" onclick="calcEquity()">Calculate My Equity</button>
+    <div class="c-result" id="eq_result">
+      <div class="c-result-label">Your Home Equity</div>
+      <div class="c-result-main" id="eq_main">—</div>
+      <div class="c-result-grid">
+        <div class="c-result-cell"><div class="c-cell-val" id="eq_pct">—</div><div class="c-cell-lbl">% You Own</div></div>
+        <div class="c-result-cell"><div class="c-cell-val" id="eq_gain">—</div><div class="c-cell-lbl">Value Gained</div></div>
+      </div>
+      <div class="c-result-sub" id="eq_sub"></div>
+      <div id="eq_insight"></div>
+    </div>
+  </div>
+</div>
+
+<div class="calc-detail" id="calc-affordability">
+  <div class="calc-detail-header">
+    <button class="back-btn" onclick="closeCalc('affordability')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="calc-detail-title">Affordability</div>
+  </div>
+  <div class="calc-detail-body">
+    <div class="c-field"><label>Annual Household Income ($)</label><input type="number" id="af_income" placeholder="e.g. 95,000"></div>
+    <div class="c-field"><label>Monthly Debt Payments ($)</label><input type="number" id="af_debt" placeholder="e.g. 400"></div>
+    <div class="c-field"><label>Down Payment Available ($)</label><input type="number" id="af_down" placeholder="e.g. 40,000"></div>
+    <div class="c-field"><label>Interest Rate (%)</label><input type="number" id="af_rate" placeholder="e.g. 6.75" step="0.01"></div>
+    <div class="c-field"><label>Loan Term</label><select id="af_term"><option value="30">30 Years</option><option value="20">20 Years</option><option value="15">15 Years</option></select></div>
+    <button class="c-btn" onclick="calcAffordability()">Calculate Affordability</button>
+    <div class="c-result" id="af_result">
+      <div class="c-result-label">Max Home Price</div>
+      <div class="c-result-main" id="af_main">—</div>
+      <div class="c-result-grid">
+        <div class="c-result-cell"><div class="c-cell-val" id="af_payment">—</div><div class="c-cell-lbl">Monthly Payment</div></div>
+        <div class="c-result-cell"><div class="c-cell-val" id="af_dti">—</div><div class="c-cell-lbl">Debt-to-Income</div></div>
+      </div>
+      <div class="c-result-sub" id="af_sub"></div>
+      <div id="af_insight"></div>
+    </div>
+  </div>
+</div>
+
+<div class="calc-detail" id="calc-amortization">
+  <div class="calc-detail-header">
+    <button class="back-btn" onclick="closeCalc('amortization')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="calc-detail-title">Amortization</div>
+  </div>
+  <div class="calc-detail-body">
+    <div class="c-field"><label>Loan Amount ($)</label><input type="number" id="am_loan" placeholder="e.g. 280,000"></div>
+    <div class="c-field"><label>Interest Rate (%)</label><input type="number" id="am_rate" placeholder="e.g. 6.75" step="0.01"></div>
+    <div class="c-field"><label>Loan Term</label><select id="am_term"><option value="30">30 Years</option><option value="20">20 Years</option><option value="15">15 Years</option><option value="10">10 Years</option></select></div>
+    <div class="c-field"><label>Extra Monthly Principal ($) — optional</label><input type="number" id="am_extra" placeholder="e.g. 200"></div>
+    <button class="c-btn" onclick="calcAmortization()">Generate Schedule</button>
+    <div class="c-result" id="am_result">
+      <div class="c-result-label">Monthly Payment</div>
+      <div class="c-result-main" id="am_main">—</div>
+      <div class="c-result-grid">
+        <div class="c-result-cell"><div class="c-cell-val" id="am_total_interest">—</div><div class="c-cell-lbl">Total Interest</div></div>
+        <div class="c-result-cell"><div class="c-cell-val" id="am_payoff">—</div><div class="c-cell-lbl">Payoff Date</div></div>
+      </div>
+      <div id="am_extra_insight"></div>
+      <div style="overflow-x:auto;margin-top:16px;"><table class="amort-table" id="am_table"></table></div>
+      <button class="amort-show-more" id="am_more_btn" onclick="showMoreAmort()" style="display:none;">Show More Months ↓</button>
+    </div>
+  </div>
+</div>
+
+<div class="calc-detail" id="calc-appreciation">
+  <div class="calc-detail-header">
+    <button class="back-btn" onclick="closeCalc('appreciation')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="calc-detail-title">Value Tracker</div>
+  </div>
+  <div class="calc-detail-body">
+    <div class="c-field"><label>Current Home Value ($)</label><input type="number" id="ap_val" placeholder="e.g. 350,000"></div>
+    <div class="c-field"><label>Annual Appreciation Rate (%)</label><input type="number" id="ap_rate" placeholder="e.g. 4" step="0.1"></div>
+    <div class="c-field"><label>Years to Project</label><select id="ap_years"><option value="5">5 Years</option><option value="10" selected>10 Years</option><option value="15">15 Years</option><option value="20">20 Years</option><option value="30">30 Years</option></select></div>
+    <button class="c-btn" onclick="calcAppreciation()">Project My Home Value</button>
+    <div class="c-result" id="ap_result">
+      <div class="c-result-label">Projected Value</div>
+      <div class="c-result-main" id="ap_main">—</div>
+      <div class="c-result-grid">
+        <div class="c-result-cell"><div class="c-cell-val" id="ap_gain">—</div><div class="c-cell-lbl">Total Gain</div></div>
+        <div class="c-result-cell"><div class="c-cell-val" id="ap_annual">—</div><div class="c-cell-lbl">Avg / Year</div></div>
+      </div>
+      <div class="c-result-sub" id="ap_sub"></div>
+      <div id="ap_insight"></div>
+    </div>
+  </div>
+</div>
+
+<div class="calc-detail" id="calc-refi">
+  <div class="calc-detail-header">
+    <button class="back-btn" onclick="closeCalc('refi')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="calc-detail-title">Refinance Savings</div>
+  </div>
+  <div class="calc-detail-body">
+    <div class="c-field"><label>Current Monthly Payment ($)</label><input type="number" id="rf_cur" placeholder="e.g. 1,950"></div>
+    <div class="c-field"><label>New Monthly Payment ($)</label><input type="number" id="rf_new" placeholder="e.g. 1,680"></div>
+    <div class="c-field"><label>Closing Costs ($)</label><input type="number" id="rf_costs" placeholder="e.g. 5,500"></div>
+    <div class="c-field"><label>Years Left on Current Loan</label><input type="number" id="rf_years" placeholder="e.g. 24"></div>
+    <button class="c-btn" onclick="calcRefi()">Calculate Savings</button>
+    <div class="c-result" id="rf_result">
+      <div class="c-result-label">Monthly Savings</div>
+      <div class="c-result-main" id="rf_main">—</div>
+      <div class="c-result-grid">
+        <div class="c-result-cell"><div class="c-cell-val" id="rf_breakeven">—</div><div class="c-cell-lbl">Break-Even</div></div>
+        <div class="c-result-cell"><div class="c-cell-val" id="rf_lifetime">—</div><div class="c-cell-lbl">Lifetime Savings</div></div>
+      </div>
+      <div id="rf_insight"></div>
+    </div>
+  </div>
+</div>
+
+<div class="calc-detail" id="calc-makememove">
+  <div class="calc-detail-header">
+    <button class="back-btn" onclick="closeCalc('makememove')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <div class="calc-detail-title">Make Me Move</div>
+  </div>
+  <div class="calc-detail-body">
+    <div class="toggle-row">
+      <button class="toggle-opt active" id="mmm_own_btn" onclick="mmmToggle('own')">I Own</button>
+      <button class="toggle-opt" id="mmm_buy_btn" onclick="mmmToggle('buy')">I am Buying</button>
+    </div>
+    <div id="mmm_own_form">
+      <div class="c-field"><label>Current Home Value ($)</label><input type="number" id="mmm_val" placeholder="e.g. 420,000"></div>
+      <div class="c-field"><label>Remaining Mortgage Balance ($)</label><input type="number" id="mmm_bal" placeholder="e.g. 210,000"></div>
+      <div class="c-field"><label>Estimated Moving Costs ($)</label><input type="number" id="mmm_move" placeholder="e.g. 8,000"></div>
+      <div class="c-field"><label>Down Payment Needed for Next Home ($)</label><input type="number" id="mmm_next" placeholder="e.g. 60,000"></div>
+      <div class="c-field"><label>Other Costs ($)</label><input type="number" id="mmm_other" placeholder="e.g. 5,000"></div>
+      <button class="c-btn" onclick="calcMMMOwner()">What's My Number?</button>
+    </div>
+    <div id="mmm_buy_form" style="display:none;">
+      <div class="c-field"><label>Max Monthly Payment ($)</label><input type="number" id="mmm_b_payment" placeholder="e.g. 2,200"></div>
+      <div class="c-field"><label>Down Payment Available ($)</label><input type="number" id="mmm_b_down" placeholder="e.g. 50,000"></div>
+      <div class="c-field"><label>Interest Rate (%)</label><input type="number" id="mmm_b_rate" placeholder="e.g. 6.75" step="0.01"></div>
+      <div class="c-field"><label>Loan Term</label><select id="mmm_b_term"><option value="30">30 Years</option><option value="20">20 Years</option><option value="15">15 Years</option></select></div>
+      <div class="c-field"><label>Taxes, Insurance, HOA ($/mo)</label><input type="number" id="mmm_b_extra" placeholder="e.g. 500"></div>
+      <button class="c-btn" onclick="calcMMMBuyer()">What's My Max Price?</button>
+    </div>
+    <div class="c-result" id="mmm_result">
+      <div class="c-result-label" id="mmm_label">Your Number</div>
+      <div class="c-result-main" id="mmm_main">—</div>
+      <div class="c-result-sub" id="mmm_sub"></div>
+      <div id="mmm_insight"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ SAVED PANEL ══════ -->
+<div class="saved-panel" id="savedPanel">
+  <div class="panel-header">
+    <h2>Saved Tips</h2>
+    <button class="close-btn" onclick="closeSaved()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="saved-list" id="savedList">
+    <div class="empty-state"><div class="empty-icon">🔖</div><p>Swipe right on tips<br>you want to keep.</p></div>
+  </div>
+</div>
+
+<!-- ══════ STRATEGY PANEL ══════ -->
+<div class="strategy-panel" id="strategyPanel">
+  <div class="panel-header">
+    <h2>My Strategy</h2>
+    <button class="close-btn" onclick="closeStrategy()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="strategy-body">
+    <div class="strategy-section">
+      <div class="strategy-section-title">Where I Am Right Now</div>
+      <div class="profile-field">
+        <label>My Situation</label>
+        <select id="sp_situation">
+          <option value="">Select one...</option>
+          <option value="renting">Currently Renting</option>
+          <option value="firsttime">First-Time Buyer</option>
+          <option value="owner">Current Homeowner</option>
+          <option value="investor">Real Estate Investor</option>
+          <option value="selling">Looking to Sell</option>
+          <option value="underwater">Underwater on Mortgage</option>
+        </select>
+      </div>
+      <div class="profile-field">
+        <label>Annual Household Income ($)</label>
+        <input type="number" id="sp_income" placeholder="e.g. 85,000">
+      </div>
+      <div class="profile-field">
+        <label>Current Savings / Down Payment ($)</label>
+        <input type="number" id="sp_savings" placeholder="e.g. 25,000">
+      </div>
+      <div class="profile-field">
+        <label>Credit Score (approximate)</label>
+        <select id="sp_credit">
+          <option value="">Select range...</option>
+          <option value="excellent">Excellent (750+)</option>
+          <option value="good">Good (700–749)</option>
+          <option value="fair">Fair (650–699)</option>
+          <option value="poor">Needs Work (below 650)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="strategy-section">
+      <div class="strategy-section-title">My Goals (select all that apply)</div>
+      <div class="goal-grid">
+        <div class="goal-chip" onclick="toggleGoal(this)" data-goal="buy">Buy my first home</div>
+        <div class="goal-chip" onclick="toggleGoal(this)" data-goal="equity">Build equity faster</div>
+        <div class="goal-chip" onclick="toggleGoal(this)" data-goal="invest">Buy a rental property</div>
+        <div class="goal-chip" onclick="toggleGoal(this)" data-goal="sell">Sell for max profit</div>
+        <div class="goal-chip" onclick="toggleGoal(this)" data-goal="refi">Refinance & save</div>
+        <div class="goal-chip" onclick="toggleGoal(this)" data-goal="payoff">Pay off mortgage early</div>
+        <div class="goal-chip" onclick="toggleGoal(this)" data-goal="credit">Improve my credit</div>
+        <div class="goal-chip" onclick="toggleGoal(this)" data-goal="understand">Just understand it all</div>
+      </div>
+    </div>
+
+    <div class="strategy-section">
+      <div class="strategy-section-title">My Timeline</div>
+      <div class="profile-field">
+        <label>When do you want to act?</label>
+        <select id="sp_timeline">
+          <option value="">Select one...</option>
+          <option value="now">Right now — I am ready</option>
+          <option value="6mo">Within 6 months</option>
+          <option value="1yr">Within 1 year</option>
+          <option value="2yr">1–2 years</option>
+          <option value="exploring">Just exploring for now</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="strategy-save-btn" onclick="buildStrategy()">Build My Personal Strategy →</button>
+
+    <div class="strategy-result" id="strategyResult">
+      <div class="strategy-result-title" id="strategyTitle">Your Roadmap</div>
+      <div id="strategySteps"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ ADMIN PANEL ══════ -->
+<div class="admin-panel" id="adminPanel">
+  <div id="pwGate" style="display:flex;flex-direction:column;height:100%;">
+    <div style="padding:52px 24px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(26,32,53,0.07);">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;">Admin</span>
+      <button class="close-btn" onclick="closeAdmin()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="pw-screen">
+      <div style="font-size:44px;margin-bottom:16px;">🔐</div>
+      <h3>Admin Access</h3>
+      <p>Enter your password to manage cards</p>
+      <input class="pw-input" type="password" id="pwInput" placeholder="••••••" maxlength="20" onkeydown="if(event.key==='Enter')checkPw()">
+      <button class="pw-btn" onclick="checkPw()">Unlock</button>
+      <div class="pw-error" id="pwError">Incorrect password. Try again.</div>
+    </div>
+  </div>
+  <div id="adminContent" style="display:none;flex-direction:column;height:100%;">
+    <div style="padding:52px 24px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(26,32,53,0.07);flex-shrink:0;">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;">Admin <span class="admin-badge" id="totalBadge">0 cards</span></span>
+      <button class="close-btn" onclick="closeAdmin()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchAdminTab('add',this)">Add Card</button>
+      <button class="admin-tab" onclick="switchAdminTab('manage',this)">Manage</button>
+    </div>
+    <div class="admin-body">
+      <div id="addTab">
+        <div class="admin-field"><label>Category</label><select id="a_cat"><option value="equity">Equity</option><option value="tax">Tax</option><option value="mortgage">Mortgage</option><option value="invest">Investing</option><option value="maintain">Maintenance</option></select></div>
+        <div class="admin-field"><label>Card Title</label><input type="text" id="a_title" placeholder="e.g. The 2% Rule for Rentals"></div>
+        <div class="admin-field"><label>Body Text (use **bold** for emphasis)</label><textarea id="a_body" placeholder="Write your tip here..."></textarea></div>
+        <div class="admin-field"><label>Tag Label</label><input type="text" id="a_tag" placeholder="e.g. Pro Tip"></div>
+        <div class="admin-field"><label>Pick an Emoji</label><div class="emoji-grid" id="emojiGrid"></div></div>
+        <div class="admin-field"><label>Color Theme</label><select id="a_theme"><option value="theme-gold">Gold</option><option value="theme-terra">Terra</option><option value="theme-sage">Sage</option><option value="theme-sky">Sky</option><option value="theme-lavender">Rose</option></select></div>
+        <button class="admin-save-btn" onclick="saveNewCard()">Add Card to App</button>
+      </div>
+      <div id="manageTab" style="display:none;">
+        <div style="font-size:12px;color:var(--ink-dim);margin-bottom:14px;">Custom cards only. Built-in cards cannot be deleted.</div>
+        <div id="adminCardList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Done!</div>
+
+<script>
+// ═══════════════════════════════════
+// CARD DATA
+// ═══════════════════════════════════
+const ALL_CARDS = [
+  {id:1,cat:'equity',theme:'theme-gold',tag:'tag-gold',tagText:'Equity',emoji:'📈',title:'What Is Home Equity?',body:'Your equity is the difference between your home\'s current value and what you still owe.<br><br>If your home is worth <strong>$350,000</strong> and you owe <strong>$220,000</strong>, you have <strong>$130,000</strong> in equity — that\'s money you actually own.'},
+  {id:2,cat:'equity',theme:'theme-gold',tag:'tag-gold',tagText:'Equity',emoji:'🚀',title:'Equity Grows Two Ways',body:'<strong>1. You pay down your loan</strong> — every payment chips away at the principal.<br><br><strong>2. Your home appreciates</strong> — U.S. homes have averaged ~4% annual appreciation historically.<br><br>Both engines run simultaneously.'},
+  {id:3,cat:'equity',theme:'theme-sky',tag:'tag-sky',tagText:'Strategy',emoji:'🔄',title:'Tap Your Equity Wisely',body:'Three ways to access equity:<br><br><strong>HELOC</strong> — a revolving credit line, interest only on what you use.<br><br><strong>Home Equity Loan</strong> — lump sum, fixed rate.<br><br><strong>Cash-out Refi</strong> — refinance for more than you owe, pocket the difference.<br><br>Use it for things that build wealth — not vacations.'},
+  {id:4,cat:'equity',theme:'theme-terra',tag:'tag-terra',tagText:'Warning',emoji:'⚠️',title:'The Equity Trap',body:'Your home equity is <strong>not liquid cash</strong>. Many homeowners over-borrow against equity and end up underwater when values dip.<br><br>Rule of thumb: keep at least <strong>20% equity</strong> as a buffer at all times.'},
+  {id:5,cat:'tax',theme:'theme-gold',tag:'tag-gold',tagText:'Tax Benefit',emoji:'🏦',title:'Mortgage Interest Deduction',body:'You can deduct the interest paid on up to <strong>$750,000</strong> of mortgage debt each year.<br><br>In the early years, nearly all your payment is interest — so this deduction can be worth <strong>thousands of dollars</strong> annually.'},
+  {id:6,cat:'tax',theme:'theme-sage',tag:'tag-sage',tagText:'Tax Benefit',emoji:'🏙️',title:'The SALT Deduction',body:'State and Local Taxes — including your <strong>property taxes</strong> — are deductible up to <strong>$10,000/year</strong>.<br><br>Keep every property tax bill. This deduction alone can save you hundreds at tax time.'},
+  {id:7,cat:'tax',theme:'theme-sky',tag:'tag-sky',tagText:'Tax Exclusion',emoji:'💵',title:'Capital Gains Free Money',body:'When you sell, you can exclude up to <strong>$250,000 in profit</strong> from capital gains tax — or <strong>$500,000</strong> married filing jointly.<br><br>You just need to have lived in the home 2 of the last 5 years.'},
+  {id:8,cat:'tax',theme:'theme-gold',tag:'tag-gold',tagText:'Tax Credit',emoji:'⚡',title:'Go Green, Get Paid',body:'Energy upgrades qualify for the <strong>Energy Efficient Home Improvement Credit</strong> — worth up to <strong>30% of the cost</strong>.<br><br>This includes solar panels, new windows, insulation, heat pumps, and energy-efficient HVAC.'},
+  {id:9,cat:'tax',theme:'theme-terra',tag:'tag-terra',tagText:'Tax Tip',emoji:'📑',title:'Itemize or Standard?',body:'You can only claim mortgage/property tax deductions if you <strong>itemize on Schedule A</strong>.<br><br>The standard deduction is $14,600 (single) or $29,200 (married). Run both scenarios every year.'},
+  {id:10,cat:'tax',theme:'theme-sage',tag:'tag-sage',tagText:'Tax Form',emoji:'📋',title:'Form 1098 — Don\'t Lose It',body:'Every January, your lender sends <strong>Form 1098</strong> showing the total mortgage interest you paid last year.<br><br>This is the key document for your mortgage interest deduction.'},
+  {id:11,cat:'mortgage',theme:'theme-terra',tag:'tag-terra',tagText:'Mortgage',emoji:'🏠',title:'The Amortization Secret',body:'In the early years of a 30-year mortgage, up to <strong>80% of your payment is pure interest</strong>.<br><br>This is why extra principal payments early on are so powerful — they can shave <strong>years</strong> off your loan.'},
+  {id:12,cat:'mortgage',theme:'theme-gold',tag:'tag-gold',tagText:'Mortgage Tip',emoji:'📅',title:'Bi-Weekly Payments Hack',body:'Instead of 12 monthly payments, switch to <strong>26 bi-weekly half-payments</strong>.<br><br>You end up making <strong>13 full payments per year</strong>. This single change can cut <strong>4–6 years</strong> off a 30-year mortgage.'},
+  {id:13,cat:'mortgage',theme:'theme-sky',tag:'tag-sky',tagText:'Mortgage',emoji:'⚖️',title:'15 vs. 30 Year Mortgage',body:'A <strong>15-year</strong> loan has higher monthly payments but dramatically less interest overall.<br><br>Example at $300K / 7%:<br>30-year: $718K total<br>15-year: $484K total<br><br>That\'s a <strong>$234,000 difference</strong>.'},
+  {id:14,cat:'mortgage',theme:'theme-sage',tag:'tag-sage',tagText:'PMI',emoji:'🚫',title:'Kill Your PMI ASAP',body:'If you put down less than 20%, you\'re paying <strong>Private Mortgage Insurance</strong> — typically $100–$300/month for the lenders benefit, not yours.<br><br>At 22% equity they\'re legally required to drop it.'},
+  {id:15,cat:'mortgage',theme:'theme-terra',tag:'tag-terra',tagText:'Mortgage Tip',emoji:'💰',title:'Round Up Every Payment',body:'If your payment is $1,347, pay <strong>$1,400</strong> or even <strong>$1,500</strong>.<br><br>That extra $50–$150/month goes straight to principal. Rounding up by just $100/month can save you <strong>$30,000+</strong> in interest.'},
+  {id:16,cat:'mortgage',theme:'theme-gold',tag:'tag-gold',tagText:'Refinance',emoji:'🔁',title:'When to Refinance',body:'Refinancing makes sense when:<br><br>✓ Rates drop <strong>0.75%+</strong> below your current rate<br>✓ You plan to stay <strong>3+ more years</strong><br>✓ Your credit score has improved<br><br>Use the Refinance Calculator to find your exact break-even.'},
+  {id:17,cat:'mortgage',theme:'theme-sky',tag:'tag-sky',tagText:'Homestead',emoji:'🏡',title:'File Your Homestead Exemption',body:'If this is your primary residence, you almost certainly qualify for a <strong>homestead exemption</strong> that lowers your property tax bill.<br><br>File with your county assessor. Free to file, could save hundreds per year.'},
+  {id:18,cat:'mortgage',theme:'theme-lavender',tag:'tag-lavender',tagText:'Mortgage',emoji:'🎯',title:'Apply Windfalls to Principal',body:'Tax refund? Bonus? Inheritance?<br><br>Put it straight toward your <strong>mortgage principal</strong>. Always tell your servicer in writing: <em>"Apply to principal only"</em>.<br><br>A $5,000 lump sum in year 3 can eliminate years of payments.'},
+  {id:19,cat:'invest',theme:'theme-sage',tag:'tag-sage',tagText:'Investing',emoji:'🏘️',title:'Buy & Hold: The Long Game',body:'Buy a rental property, rent it out, and hold for decades. Four wealth engines at once:<br><br>💵 Cash flow from rent<br>📈 Appreciation over time<br>🏦 Tenant pays down your mortgage<br>🧾 Massive tax deductions'},
+  {id:20,cat:'invest',theme:'theme-gold',tag:'tag-gold',tagText:'Investing',emoji:'📏',title:'The 1% Rule for Rentals',body:'A quick filter: <strong>Monthly rent ÷ Purchase price ≥ 1%</strong><br><br>A $200K home should rent for $2,000+/mo to pass.<br><br>This screens out bad deals fast.'},
+  {id:21,cat:'invest',theme:'theme-sky',tag:'tag-sky',tagText:'Investing',emoji:'🔢',title:'Cash-on-Cash Return',body:'The real ROI metric for investors:<br><br><strong>Annual Cash Flow ÷ Cash Invested × 100</strong><br><br>Example: $40,000 down, netting $4,800/yr = <strong>12% cash-on-cash return</strong>.<br><br>Aim for 8%+ as a solid benchmark.'},
+  {id:22,cat:'invest',theme:'theme-terra',tag:'tag-terra',tagText:'Strategy',emoji:'🪜',title:'Property Laddering',body:'Use equity from your primary home as a <strong>down payment on a rental</strong>. The rental generates income and builds its own equity. Then repeat.<br><br>This is how ordinary people build extraordinary real estate portfolios.'},
+  {id:23,cat:'invest',theme:'theme-lavender',tag:'tag-lavender',tagText:'Strategy',emoji:'🔁',title:'The BRRRR Method',body:'<strong>B</strong>uy distressed property below market<br><strong>R</strong>ehab it to force appreciation<br><strong>R</strong>ent it to a tenant<br><strong>R</strong>efinance and pull your cash back out<br><strong>R</strong>epeat with the same money'},
+  {id:24,cat:'invest',theme:'theme-sage',tag:'tag-sage',tagText:'Tax Strategy',emoji:'🔄',title:'The 1031 Exchange',body:'A <strong>1031 Exchange</strong> lets you roll 100% of proceeds from a sold investment property into a new one and defer capital gains taxes <em>indefinitely</em>.<br><br>Completely legal. Investors use this to keep trading up forever.'},
+  {id:25,cat:'invest',theme:'theme-gold',tag:'tag-gold',tagText:'Tax Benefit',emoji:'📉',title:'Depreciation: Free Money',body:'The IRS lets you deduct <strong>1/27.5th</strong> of your investment property\'s value per year as "depreciation" — even while it appreciates.<br><br>On a $200K property: <strong>$7,272/year</strong> paper deduction.'},
+  {id:26,cat:'invest',theme:'theme-terra',tag:'tag-terra',tagText:'Investing',emoji:'⏳',title:'When to Sell vs. Hold',body:'<strong>Keep holding when:</strong> rents rising, cash flow positive, 1031 lined up<br><br><strong>Consider selling when:</strong> cash flow negative, major repairs loom, better opportunity exists<br><br>Patience is the strategy.'},
+  {id:27,cat:'maintain',theme:'theme-sky',tag:'tag-sky',tagText:'Maintenance',emoji:'💰',title:'The 1% Maintenance Rule',body:'Budget <strong>1% of your home\'s value per year</strong> for maintenance.<br><br>$300K home = $3,000/year = $250/month set aside.<br><br>Older homes may need 1.5–2%. Open a dedicated savings account and auto-transfer monthly.'},
+  {id:28,cat:'maintain',theme:'theme-sage',tag:'tag-sage',tagText:'Spring',emoji:'🌸',title:'Spring Checklist',body:'Do these every March–May:<br><br>🌬️ Replace HVAC air filters<br>🏠 Inspect roof for winter damage<br>🚿 Clean gutters & downspouts<br>🌿 Check irrigation & outdoor faucets<br>🔥 Service A/C before summer'},
+  {id:29,cat:'maintain',theme:'theme-gold',tag:'tag-gold',tagText:'Fall',emoji:'🍂',title:'Fall Checklist',body:'Do these every September–November:<br><br>🍃 Clean gutters after leaves fall<br>🔥 Service furnace before winter<br>🚰 Drain & shut off outdoor faucets<br>🪟 Caulk windows & doors<br>🧯 Check fire extinguisher charge'},
+  {id:30,cat:'maintain',theme:'theme-terra',tag:'tag-terra',tagText:'Maintenance',emoji:'🔧',title:'The Big 5 to Never Ignore',body:'These deferred items become <strong>catastrophically expensive</strong>:<br><br>🏠 Roof leaks → mold + structural damage<br>💧 Plumbing leaks → foundation damage<br>🌬️ HVAC neglect → full system failure<br>🌿 Gutters → foundation flooding<br>⚡ Electrical → fire risk'},
+  {id:31,cat:'maintain',theme:'theme-lavender',tag:'tag-lavender',tagText:'Maintenance',emoji:'📸',title:'Document Everything',body:'Take photos of every repair, upgrade, and maintenance task — with dates.<br><br>✓ Supports insurance claims<br>✓ Increases appraised value<br>✓ Justifies higher sale price<br>✓ Proves capital improvements for taxes'},
+];
+
+// ═══════════════════════════════════
+// SCREEN NAV
+// ═══════════════════════════════════
+function showScreen(name, btn) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+  document.getElementById('screen-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ═══════════════════════════════════
+// SWIPE DECK
+// ═══════════════════════════════════
+let currentFilter = 'all', deck = [], savedCards = [];
+let dragStartX = 0, dragStartY = 0, currentX = 0;
+let isDragging = false, activeCardEl = null;
+
+function getFilteredCards() {
+  const all = getAllCards();
+  return currentFilter === 'all' ? [...all] : all.filter(c => c.cat === currentFilter);
+}
+
+function filterCards(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  initDeck();
+}
+
+function initDeck() {
+  deck = getFilteredCards().reverse();
+  document.getElementById('cardStack').innerHTML = '';
+  document.getElementById('doneScreen').classList.remove('show');
+  document.getElementById('swipeHint').style.display = '';
+  renderStack();
+}
+
+function renderStack() {
+  const stack = document.getElementById('cardStack');
+  stack.innerHTML = '';
+  if (deck.length === 0) {
+    document.getElementById('doneScreen').classList.add('show');
+    document.getElementById('swipeHint').style.display = 'none';
+    return;
+  }
+  const show = deck.slice(-3);
+  show.forEach((card, i) => {
+    const el = createCardEl(card, deck.length - (show.length - 1 - i));
+    if (i === 0) el.classList.add('back-2');
+    else if (i === 1) el.classList.add('back-1');
+    else { el.classList.add('active-card'); attachDrag(el); }
+    stack.appendChild(el);
+    if (i === show.length - 1) {
+      setTimeout(() => {
+        const body = el.querySelector('.card-body');
+        const hint = el.querySelector('.card-scroll-hint');
+        if (body && hint && body.scrollHeight > body.clientHeight) {
+          hint.textContent = 'scroll for more ↕';
+          body.addEventListener('scroll', () => { hint.textContent = ''; }, { once: true });
+        }
+      }, 100);
+    }
+  });
+}
+
+function createCardEl(card, num) {
+  const el = document.createElement('div');
+  el.className = `tip-card ${card.theme}`;
+  el.dataset.id = card.id;
+  const total = getFilteredCards().length;
+  el.innerHTML = `
+    <div class="swipe-yes">SAVED</div>
+    <div class="swipe-no">SKIP</div>
+    <div class="card-header">
+      <div class="card-category-pill">${getCatLabel(card.cat)}</div>
+      <div class="card-number">${num} / ${total}</div>
+    </div>
+    <div class="card-title">${card.title}</div>
+    <div class="card-body">${card.body}</div>
+    <div class="card-footer">
+      <div class="card-tag ${card.tag}">${card.tagText}</div>
+      <div class="card-scroll-hint"></div>
+    </div>
+  `;
+  return el;
+}
+
+function getCatLabel(cat) {
+  return {equity:'Equity',tax:'Tax',mortgage:'Mortgage',invest:'Investing',maintain:'Maintenance'}[cat] || cat;
+}
+
+function attachDrag(el) {
+  activeCardEl = el;
+  el.addEventListener('mousedown', startDrag);
+  el.addEventListener('touchstart', startDrag, { passive: true });
+}
+
+function startDrag(e) {
+  if (e.target.closest('.card-body')) return;
+  isDragging = true;
+  const pt = e.touches ? e.touches[0] : e;
+  dragStartX = pt.clientX; dragStartY = pt.clientY; currentX = 0;
+  document.addEventListener('mousemove', onDrag);
+  document.addEventListener('mouseup', endDrag);
+  document.addEventListener('touchmove', onDrag, { passive: true });
+  document.addEventListener('touchend', endDrag);
+}
+
+function onDrag(e) {
+  if (!isDragging || !activeCardEl) return;
+  const pt = e.touches ? e.touches[0] : e;
+  currentX = pt.clientX - dragStartX;
+  const cy = pt.clientY - dragStartY;
+  activeCardEl.style.transform = `translateX(${currentX}px) translateY(${cy*0.3}px) rotate(${currentX*0.07}deg)`;
+  activeCardEl.style.transition = 'none';
+  const yes = activeCardEl.querySelector('.swipe-yes');
+  const no = activeCardEl.querySelector('.swipe-no');
+  const ratio = Math.min(Math.abs(currentX)/80, 1);
+  if (currentX > 20) { yes.style.opacity = ratio; no.style.opacity = 0; }
+  else if (currentX < -20) { no.style.opacity = ratio; yes.style.opacity = 0; }
+  else { yes.style.opacity = 0; no.style.opacity = 0; }
+}
+
+function endDrag() {
+  if (!isDragging) return;
+  isDragging = false;
+  document.removeEventListener('mousemove', onDrag); document.removeEventListener('mouseup', endDrag);
+  document.removeEventListener('touchmove', onDrag); document.removeEventListener('touchend', endDrag);
+  if (!activeCardEl) return;
+  activeCardEl.style.transition = '';
+  if (currentX > 80) doSwipeRight();
+  else if (currentX < -80) doSwipeLeft();
+  else {
+    activeCardEl.style.transform = '';
+    activeCardEl.querySelector('.swipe-yes').style.opacity = 0;
+    activeCardEl.querySelector('.swipe-no').style.opacity = 0;
+  }
+}
+
+function doSwipeRight() {
+  if (!activeCardEl) return;
+  const id = parseInt(activeCardEl.dataset.id);
+  const card = getAllCards().find(c => c.id === id);
+  if (card && !savedCards.find(s => s.id === id)) { savedCards.push(card); updateSavedCount(); }
+  activeCardEl.classList.add('flying-right');
+  setTimeout(() => { deck.pop(); renderStack(); }, 380);
+}
+
+function doSwipeLeft() {
+  if (!activeCardEl) return;
+  activeCardEl.classList.add('flying-left');
+  setTimeout(() => { deck.pop(); renderStack(); }, 380);
+}
+
+function swipeRight() { if (!activeCardEl) return; currentX = 120; activeCardEl.querySelector('.swipe-yes').style.opacity = 1; setTimeout(doSwipeRight, 80); }
+function swipeLeft() { if (!activeCardEl) return; currentX = -120; activeCardEl.querySelector('.swipe-no').style.opacity = 1; setTimeout(doSwipeLeft, 80); }
+function updateSavedCount() { document.getElementById('savedCount').textContent = savedCards.length; }
+function restartCards() { initDeck(); }
+
+function openSaved() {
+  document.getElementById('savedPanel').classList.add('open');
+  const list = document.getElementById('savedList');
+  if (!savedCards.length) { list.innerHTML = '<div class="empty-state"><div class="empty-icon">🔖</div><p>Swipe right on tips<br>you want to keep.</p></div>'; return; }
+  list.innerHTML = savedCards.map(c => `<div class="saved-item"><div class="saved-emoji">${c.emoji || '✦'}</div><div class="saved-content"><h4>${c.title}</h4><p>${c.body.replace(/<[^>]+>/g,'').substring(0,90)}…</p></div></div>`).join('');
+}
+function closeSaved() { document.getElementById('savedPanel').classList.remove('open'); }
+
+// ═══════════════════════════════════
+// STRATEGY BUILDER
+// ═══════════════════════════════════
+function toggleGoal(el) { el.classList.toggle('selected'); }
+function openStrategy() { document.getElementById('strategyPanel').classList.add('open'); }
+function closeStrategy() { document.getElementById('strategyPanel').classList.remove('open'); }
+
+function buildStrategy() {
+  const situation = document.getElementById('sp_situation').value;
+  const income = +document.getElementById('sp_income').value || 0;
+  const savings = +document.getElementById('sp_savings').value || 0;
+  const credit = document.getElementById('sp_credit').value;
+  const timeline = document.getElementById('sp_timeline').value;
+  const goals = [...document.querySelectorAll('.goal-chip.selected')].map(el => el.dataset.goal);
+
+  if (!situation) { showToast('Tell us your situation first'); return; }
+
+  let title = 'Your Personal Roadmap';
+  let steps = [];
+
+  // Situation-based logic
+  if (situation === 'renting') {
+    title = 'Your Path to Ownership';
+    if (credit === 'poor' || credit === 'fair') {
+      steps.push({ n:1, text: '<strong>Fix your credit first.</strong> Get to 700+ before applying. Pay down credit cards below 30% utilization and dispute any errors on your report. This alone can save you tens of thousands over a mortgage.' });
+    }
+    const downNeeded = income > 0 ? Math.round(income * 0.1) : 0;
+    if (savings < downNeeded && downNeeded > 0) {
+      const gap = downNeeded - savings;
+      const monthlyToSave = Math.round(gap / 18);
+
+      // Smart thresholds: is this person low on savings relative to income?
+      const downPct = income > 0 ? (savings / income) : 0;
+      const isLowSavings = downPct < 0.2 || savings < 20000;
+      const isVeryLowSavings = savings < 10000;
+
+      // Conventional = 5% (right fit for higher income/savings)
+      const convBuyNow = savings > 0 ? Math.round(savings / 0.05) : 0;
+      // FHA = 3.5% (only suggest when savings are genuinely low)
+      const fhaBuyNow = savings > 0 ? Math.round(savings / 0.035) : 0;
+      // Seller's Assist: seller covers ~3% closing costs, frees up savings for down payment
+      const convClosingCosts = convBuyNow > 0 ? Math.round(convBuyNow * 0.03) : 0;
+      const convWithAssist = savings > 0 ? Math.round((savings + convClosingCosts) / 0.05) : 0;
+
+      let downText = `<strong>Here's where you stand right now.</strong><br><br>`;
+
+      if (savings > 0) {
+        downText += `With <strong>$${savings.toLocaleString()}</strong> saved, a conventional loan at 5% down gets you up to <strong>$${convBuyNow.toLocaleString()}</strong> — the right fit for your income level.<br><br>`;
+
+        if (isLowSavings) {
+          downText += `If you need more buying power right now, an FHA loan at 3.5% down could get you to <strong>$${fhaBuyNow.toLocaleString()}</strong> — though you will carry mortgage insurance until you reach 20% equity.<br><br>`;
+          downText += `<strong>A Seller's Assist can stretch your buying power significantly.</strong> If the seller covers ~3% in closing costs (~$${convClosingCosts.toLocaleString()}), that money stays in your pocket as down payment:<br>`;
+          downText += `• Without Seller's Assist: up to <strong>$${convBuyNow.toLocaleString()}</strong><br>`;
+          downText += `• With Seller's Assist: up to <strong>$${convWithAssist.toLocaleString()}</strong><br><br>`;
+          downText += `Check the Lingo tab to see exactly how to ask for it — it costs you nothing to request.<br><br>`;
+        }
+
+        downText += `To build to a stronger 10% position, saving <strong>$${monthlyToSave.toLocaleString()}/mo</strong> gets you there in 18 months.`;
+
+        if (isVeryLowSavings) {
+          downText += `<br><br><strong>You may also qualify for assistance programs many buyers do not know exist:</strong><br>`;
+          downText += `• <strong>State first-time buyer grants</strong> — most states offer 0–3% forgivable loans<br>`;
+          downText += `• <strong>USDA loan</strong> — 0% down in qualifying rural/suburban areas<br>`;
+          downText += `• <strong>VA loan</strong> — 0% down if you or a spouse served in the military<br>`;
+          downText += `• <em>downpaymentresource.com</em> — free tool, matches you to programs by zip code<br>`;
+          downText += `• <em>hud.gov/buying/localbuying</em> — HUD-approved local resources`;
+        }
+      }
+
+      steps.push({ n: steps.length+1, text: downText });
+    }
+    steps.push({ n: steps.length+1, text: '<strong>Get pre-approved before you tour a single home.</strong> Apply with at least 2 lenders and compare — a 0.5% rate difference on a $300K loan is $30,000 over 30 years.' });
+  }
+  else if (situation === 'firsttime') {
+    title = 'First-Time Buyer Roadmap';
+    steps.push({ n:1, text: '<strong>Run your affordability number.</strong> Use the Affordability Calculator in the Calculate tab. Know your max price before you fall in love with anything.' });
+
+    if (savings > 0) {
+      // Smart thresholds based on income + savings
+      const savingsPct = income > 0 ? savings / income : 0;
+      const isLowSavings = savingsPct < 0.2 || savings < 20000;
+      const isVeryLowSavings = savings < 10000;
+
+      const convBuyNow = Math.round(savings / 0.05);
+      const fhaBuyNow = Math.round(savings / 0.035);
+      const convClosingCosts = Math.round(convBuyNow * 0.03);
+      const convWithAssist = Math.round((savings + convClosingCosts) / 0.05);
+
+      let savingsText = `<strong>What your $${savings.toLocaleString()} in savings can buy right now:</strong><br><br>`;
+      savingsText += `With a conventional loan at 5% down — the right fit at your income — you can buy up to <strong>$${convBuyNow.toLocaleString()}</strong>.<br><br>`;
+
+      if (isLowSavings) {
+        savingsText += `Need more buying power? An FHA loan at 3.5% down gets you to <strong>$${fhaBuyNow.toLocaleString()}</strong> — but comes with mortgage insurance until you reach 20% equity.<br><br>`;
+        savingsText += `<strong>Seller's Assist — a move most buyers do not make:</strong><br>`;
+        savingsText += `If the seller covers ~3% in closing costs (~$${convClosingCosts.toLocaleString()}), that money rolls into your down payment instead:<br>`;
+        savingsText += `• Without Seller's Assist: up to <strong>$${convBuyNow.toLocaleString()}</strong><br>`;
+        savingsText += `• With Seller's Assist: up to <strong>$${convWithAssist.toLocaleString()}</strong><br>`;
+        savingsText += `Check the Lingo tab to see exactly how to request it.`;
+      }
+
+      if (isVeryLowSavings) {
+        savingsText += `<br><br><strong>Programs you may already qualify for:</strong><br>`;
+        savingsText += `• <strong>State first-time buyer grants</strong> — most states offer 0–3% forgivable loans<br>`;
+        savingsText += `• <strong>USDA loan</strong> — 0% down in qualifying rural/suburban areas<br>`;
+        savingsText += `• <strong>VA loan</strong> — 0% down if you or a spouse served in the military<br>`;
+        savingsText += `• <em>downpaymentresource.com</em> — free, matches you to programs by zip code<br>`;
+        savingsText += `• <em>hud.gov/buying/localbuying</em> — HUD-approved local resources`;
+      }
+
+      steps.push({ n:2, text: savingsText });
+    }
+
+    steps.push({ n: steps.length+1, text: '<strong>Learn the language.</strong> Spend 30 minutes in the Lingo tab. Terms like contingency, earnest money, and DTI will come up — knowing them puts you in control.' });
+    if (credit === 'good' || credit === 'excellent') {
+      steps.push({ n: steps.length+1, text: '<strong>Shop at least 3 lenders.</strong> Your credit is solid. Lenders compete for good borrowers — even a 0.25% rate difference saves thousands over time.' });
+    }
+    if (credit === 'fair' || credit === 'poor') {
+      steps.push({ n: steps.length+1, text: '<strong>Work on credit before applying.</strong> Getting from 620 to 680 can drop your rate by 0.5–1% — tens of thousands over the life of the loan. Pay cards below 30% utilization and dispute any errors first.' });
+    }
+    steps.push({ n: steps.length+1, text: '<strong>Never skip the inspection.</strong> Budget $400–$600. Finding a $15,000 problem before closing is worth every penny.' });
+    steps.push({ n: steps.length+1, text: '<strong>File your homestead exemption immediately after closing.</strong> Free to file. Lowers your property tax bill for as long as you own the home.' });
+  }
+  else if (situation === 'owner') {
+    title = 'Maximize What You Already Have';
+    if (goals.includes('equity')) {
+      steps.push({ n:1, text: '<strong>Run your equity number now.</strong> Use the Equity Calculator. If you\'re above 20%, you can cancel PMI and access a HELOC. If you\'re below, even $100/mo extra principal accelerates you there.' });
+    }
+    if (goals.includes('refi')) {
+      steps.push({ n: steps.length+1, text: '<strong>Check if refinancing makes sense.</strong> Use the Refinance Calculator. If rates have dropped 0.75%+ from your current rate and you\'re staying 3+ years, it\'s likely worth it.' });
+    }
+    if (goals.includes('payoff')) {
+      steps.push({ n: steps.length+1, text: '<strong>Add one extra payment per year.</strong> Set up bi-weekly payments — you\'ll make 13 payments instead of 12 automatically. On a $300K loan at 7%, that cuts 5+ years off your mortgage.' });
+    }
+    if (goals.includes('invest')) {
+      steps.push({ n: steps.length+1, text: '<strong>Use your equity as a launchpad.</strong> A HELOC against your existing equity can fund the down payment on a rental property. The 1031 Exchange tip in the Investing cards will matter when it\'s time to sell.' });
+    }
+    if (steps.length === 0) {
+      steps.push({ n:1, text: '<strong>Know where you stand.</strong> Start with the Equity Calculator and Amortization Schedule. Understanding your exact numbers is the foundation of every smart move from here.' });
+      steps.push({ n:2, text: '<strong>Build your maintenance fund.</strong> Set aside 1% of your home\'s value per year in a dedicated account. $300K home = $250/month. This prevents emergencies from derailing your wealth-building.' });
+    }
+  }
+  else if (situation === 'investor') {
+    title = 'Investor Growth Strategy';
+    steps.push({ n:1, text: '<strong>Run cash-on-cash on every deal.</strong> Annual cash flow ÷ cash invested. Anything under 8% needs a strong appreciation thesis to justify it.' });
+    steps.push({ n:2, text: '<strong>Use the 1031 Exchange every time you sell.</strong> Roll proceeds into the next property tax-deferred. Do this consistently and you never pay capital gains — indefinitely.' });
+    steps.push({ n:3, text: '<strong>Depreciation is your hidden weapon.</strong> You can deduct 1/27.5 of the property value annually — wiping out most taxable rental income on paper. Talk to a CPA who specializes in real estate.' });
+    if (goals.includes('invest')) {
+      steps.push({ n:4, text: '<strong>Consider the BRRRR method</strong> for your next acquisition. Buy distressed, rehab to force appreciation, refinance to pull capital back out. Repeat with the same money.' });
+    }
+  }
+  else if (situation === 'selling') {
+    title = 'Sell for Maximum Profit';
+    steps.push({ n:1, text: '<strong>Know your make-me-move number first.</strong> Use the Make Me Move calculator. Understand exactly what price covers your mortgage, realtor fees, moving costs, and next down payment before you list.' });
+    steps.push({ n:2, text: '<strong>Small upgrades, big returns.</strong> Fresh paint, landscaping, and a deep clean return 2–5x their cost in sale price. Skip the full kitchen renovation — buyers want to choose that themselves.' });
+    steps.push({ n:3, text: '<strong>Time your listing strategically.</strong> March–May listings get 15–20% more showings than fall/winter. If you can wait for spring, it often means a better price.' });
+    steps.push({ n:4, text: '<strong>Understand the capital gains exclusion.</strong> If you\'ve lived here 2 of the last 5 years, you exclude up to $250K in profit ($500K married) from capital gains tax. One of the best tax breaks in existence.' });
+  }
+  else if (situation === 'underwater') {
+    title = 'A Clear Path Forward';
+    steps.push({ n:1, text: '<strong>Markets recover — and so do homeowners.</strong> Most people who stayed patient through being underwater came out ahead. Time is your most powerful tool right now.' });
+    steps.push({ n:2, text: '<strong>Don\'t sell unless you have to.</strong> Selling underwater locks in the loss. Renting the property out if you need to move can bridge the gap until values recover.' });
+    steps.push({ n:3, text: '<strong>Look into loan modification or forbearance</strong> if payments are a strain. Call your servicer directly — they have programs that are rarely advertised.' });
+    steps.push({ n:4, text: '<strong>Every extra dollar to principal matters more now.</strong> Even $50/month extra builds equity faster and shortens the time until you\'re above water.' });
+  }
+
+  // Timeline add-on
+  if (timeline === 'now' && (situation === 'renting' || situation === 'firsttime')) {
+    steps.push({ n: steps.length+1, text: '<strong>You\'re ready to move fast — so line up your team now.</strong> Get pre-approved this week, identify a buyer\'s agent, and set up auto-alerts for new listings in your target area.' });
+  }
+
+  if (steps.length === 0) {
+    steps.push({ n:1, text: '<strong>Start with education.</strong> Use the Tips tab to swipe through the cards most relevant to your situation. The Lingo tab will decode any term you\'ve heard but don\'t fully understand.' });
+  }
+
+  document.getElementById('strategyTitle').textContent = title;
+  document.getElementById('strategySteps').innerHTML = steps.map(s => `
+    <div class="strategy-step">
+      <div class="step-num">${s.n}</div>
+      <div class="step-text">${s.text}</div>
+    </div>
+  `).join('');
+  document.getElementById('strategyResult').classList.add('show');
+  document.querySelector('.strategy-result').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════
+// CALCULATORS
+// ═══════════════════════════════════
+const fmt = n => '$' + Math.abs(Math.round(n)).toLocaleString('en-US');
+const fmtK = n => n >= 1000 ? '$' + (n/1000).toFixed(0) + 'K' : fmt(n);
+
+function openCalc(name) { document.getElementById('calc-' + name).classList.add('open'); }
+function closeCalc(name) { document.getElementById('calc-' + name).classList.remove('open'); }
+
+function calcEquity() {
+  const val = +document.getElementById('eq_val').value;
+  const bal = +document.getElementById('eq_bal').value;
+  const orig = +document.getElementById('eq_orig').value || 0;
+  if (!val || !bal) { alert('Please enter home value and mortgage balance.'); return; }
+  const equity = val - bal;
+  const pct = ((equity / val) * 100).toFixed(1);
+  const gain = orig ? val - orig : null;
+  document.getElementById('eq_main').textContent = fmt(equity);
+  document.getElementById('eq_pct').textContent = pct + '%';
+  document.getElementById('eq_gain').textContent = gain !== null ? fmt(gain) : '—';
+  document.getElementById('eq_sub').textContent = equity >= 0 ? `You own ${pct}% of your home. Remaining balance: ${fmt(bal)}.` : `You are underwater by ${fmt(Math.abs(equity))}.`;
+  const ins = document.getElementById('eq_insight');
+  if (equity > 0 && parseFloat(pct) >= 20) ins.innerHTML = `<div class="c-insight">You are in great shape. With ${pct}% equity you can cancel PMI, qualify for a HELOC, or use a cash-out refi to fund renovations or your next investment.</div>`;
+  else if (equity > 0) ins.innerHTML = `<div class="c-insight">Building every month — keep going. Once you hit 20% you can cancel PMI and unlock better loan options. Even small extra principal payments now get you there faster.</div>`;
+  else ins.innerHTML = `<div class="c-insight">Markets recover — and so do homeowners. Focus on paying down principal when you can. Most underwater homeowners who stayed patient came out ahead.</div>`;
+  document.getElementById('eq_result').classList.add('show');
+}
+
+function calcAffordability() {
+  const income = +document.getElementById('af_income').value;
+  const debt = +document.getElementById('af_debt').value || 0;
+  const down = +document.getElementById('af_down').value || 0;
+  const rate = +document.getElementById('af_rate').value;
+  const term = +document.getElementById('af_term').value;
+  if (!income || !rate) { alert('Please fill in income and interest rate.'); return; }
+  const monthlyIncome = income / 12;
+  const maxPayment = monthlyIncome * 0.28;
+  const maxTotal = monthlyIncome * 0.43 - debt;
+  const affordPayment = Math.min(maxPayment, maxTotal);
+  const r = rate / 100 / 12, n = term * 12;
+  const maxLoan = affordPayment * (Math.pow(1+r,n) - 1) / (r * Math.pow(1+r,n));
+  const maxPrice = maxLoan + down;
+  const dti = ((debt + affordPayment) / monthlyIncome * 100).toFixed(0);
+  document.getElementById('af_main').textContent = fmt(maxPrice);
+  document.getElementById('af_payment').textContent = fmt(affordPayment) + '/mo';
+  document.getElementById('af_dti').textContent = dti + '%';
+  document.getElementById('af_sub').textContent = `Based on 28% front-end / 43% back-end DTI guidelines. Down payment of ${fmt(down)} included.`;
+  const ins = document.getElementById('af_insight');
+  if (parseFloat(dti) <= 36) ins.innerHTML = `<div class="c-insight">Your debt-to-income ratio is excellent. You are in a strong position for the best mortgage rates. Lenders will be competing for your application.</div>`;
+  else if (parseFloat(dti) <= 43) ins.innerHTML = `<div class="c-insight">Your DTI is within qualifying range. Paying down a credit card or auto loan before applying could unlock better rates and terms.</div>`;
+  else ins.innerHTML = `<div class="c-insight">Your DTI is above typical limits right now — but that is fixable. Paying off one or two debts, increasing income, or saving a larger down payment shifts this significantly.</div>`;
+  document.getElementById('af_result').classList.add('show');
+}
+
+let amortData = [], amortShowing = 12;
+function calcAmortization() {
+  const loan = +document.getElementById('am_loan').value;
+  const rate = +document.getElementById('am_rate').value;
+  const term = +document.getElementById('am_term').value;
+  const extra = +document.getElementById('am_extra').value || 0;
+  if (!loan || !rate) { alert('Please enter loan amount and interest rate.'); return; }
+  const r = rate / 100 / 12, n = term * 12;
+  const basePayment = loan * r * Math.pow(1+r,n) / (Math.pow(1+r,n) - 1);
+  const totalPayment = basePayment + extra;
+  amortData = [];
+  let bal = loan, totalInt = 0, months = 0;
+  while (bal > 0 && months < n) {
+    months++;
+    const intPart = bal * r;
+    let prinPart = Math.min(totalPayment - intPart, bal);
+    if (prinPart < 0) prinPart = 0;
+    bal -= prinPart;
+    totalInt += intPart;
+    amortData.push({ month: months, payment: intPart + prinPart, principal: prinPart, interest: intPart, balance: Math.max(bal, 0) });
+    if (bal <= 0) break;
+  }
+  const payoffDate = new Date(); payoffDate.setMonth(payoffDate.getMonth() + months);
+  const payoffStr = payoffDate.toLocaleDateString('en-US', { month:'short', year:'numeric' });
+  document.getElementById('am_main').textContent = fmt(basePayment + extra);
+  document.getElementById('am_total_interest').textContent = fmt(totalInt);
+  document.getElementById('am_payoff').textContent = payoffStr;
+  const ins = document.getElementById('am_extra_insight');
+  if (extra > 0) {
+    const saved = term * 12 - months;
+    ins.innerHTML = `<div class="c-insight">Adding ${fmt(extra)}/mo saves you ${Math.floor(saved/12)} years and ${saved%12} months of payments. That's a massive return on a small habit.</div>`;
+  } else {
+    ins.innerHTML = `<div class="c-insight">Try entering an extra monthly payment above. Even $100/mo extra can shave years off your mortgage and save tens of thousands in interest.</div>`;
+  }
+  amortShowing = 12;
+  renderAmortTable();
+  document.getElementById('am_result').classList.add('show');
+}
+
+function renderAmortTable() {
+  const tbl = document.getElementById('am_table');
+  const rows = amortData.slice(0, amortShowing);
+  tbl.innerHTML = `<tr><th>Mo</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr>` +
+    rows.map(r => `<tr><td>${r.month}</td><td>${fmtK(r.payment)}</td><td>${fmtK(r.principal)}</td><td>${fmtK(r.interest)}</td><td>${fmtK(r.balance)}</td></tr>`).join('');
+  document.getElementById('am_more_btn').style.display = amortShowing < amortData.length ? 'block' : 'none';
+}
+function showMoreAmort() { amortShowing = Math.min(amortShowing + 12, amortData.length); renderAmortTable(); }
+
+function calcAppreciation() {
+  const val = +document.getElementById('ap_val').value;
+  const rate = +document.getElementById('ap_rate').value;
+  const years = +document.getElementById('ap_years').value;
+  if (!val || !rate) { alert('Please enter home value and appreciation rate.'); return; }
+  const future = val * Math.pow(1 + rate/100, years);
+  const gain = future - val;
+  document.getElementById('ap_main').textContent = fmt(future);
+  document.getElementById('ap_gain').textContent = fmt(gain);
+  document.getElementById('ap_annual').textContent = fmt(gain / years);
+  document.getElementById('ap_sub').textContent = `At ${rate}% annual appreciation, your ${fmt(val)} home grows to ${fmt(future)} in ${years} years — a gain of ${fmt(gain)}.`;
+  let msg = rate >= 5 ? `At ${rate}% you are outpacing inflation and most savings accounts. Your home is one of your best wealth-building tools — before counting mortgage paydown and tax benefits on top.`
+    : rate >= 3 ? `Solid, steady growth. At ${rate}% your home is quietly building real wealth every year. Add mortgage paydown and tax advantages and your total return is significantly higher.`
+    : `Patience pays. Homeownership builds wealth through appreciation, equity paydown, and tax benefits all at once — time is the ingredient that makes it powerful.`;
+  document.getElementById('ap_insight').innerHTML = `<div class="c-insight">${msg}</div>`;
+  document.getElementById('ap_result').classList.add('show');
+}
+
+function calcRefi() {
+  const cur = +document.getElementById('rf_cur').value;
+  const nw = +document.getElementById('rf_new').value;
+  const costs = +document.getElementById('rf_costs').value;
+  const years = +document.getElementById('rf_years').value || 30;
+  if (!cur || !nw || !costs) { alert('Please fill in all fields.'); return; }
+  const savings = cur - nw;
+  const breakEvenMonths = savings > 0 ? Math.ceil(costs / savings) : null;
+  const lifetimeSavings = savings > 0 ? savings * years * 12 - costs : 0;
+  document.getElementById('rf_main').textContent = savings > 0 ? fmt(savings) + '/mo' : '$0/mo';
+  document.getElementById('rf_breakeven').textContent = breakEvenMonths ? `${breakEvenMonths} mo` : 'N/A';
+  document.getElementById('rf_lifetime').textContent = lifetimeSavings > 0 ? fmt(lifetimeSavings) : '$0';
+  const ins = document.getElementById('rf_insight');
+  if (!savings || savings <= 0) ins.innerHTML = `<div class="c-insight">The numbers do not favor refinancing right now — but that can change fast. Set a rate alert so you are ready the moment rates drop into your sweet spot.</div>`;
+  else if (breakEvenMonths <= 24) ins.innerHTML = `<div class="c-insight">This is a strong refi opportunity. You'll break even in ${breakEvenMonths} months and save ${fmt(lifetimeSavings)} over the life of the loan.</div>`;
+  else if (breakEvenMonths <= 48) ins.innerHTML = `<div class="c-insight">This refi makes sense if you plan to stay. You'll break even in ${(breakEvenMonths/12).toFixed(1)} years — ask your lender about a no-cost refi to shorten that.</div>`;
+  else ins.innerHTML = `<div class="c-insight">The break-even is on the longer side. Ask about a <strong>no-cost refinance</strong> — lender covers closing costs in exchange for a slightly higher rate. Can make the math work regardless.</div>`;
+  document.getElementById('rf_result').classList.add('show');
+}
+
+let mmmMode = 'own';
+function mmmToggle(mode) {
+  mmmMode = mode;
+  document.getElementById('mmm_own_btn').classList.toggle('active', mode === 'own');
+  document.getElementById('mmm_buy_btn').classList.toggle('active', mode === 'buy');
+  document.getElementById('mmm_own_form').style.display = mode === 'own' ? 'block' : 'none';
+  document.getElementById('mmm_buy_form').style.display = mode === 'buy' ? 'block' : 'none';
+  document.getElementById('mmm_result').classList.remove('show');
+}
+
+function calcMMMOwner() {
+  const val = +document.getElementById('mmm_val').value;
+  const bal = +document.getElementById('mmm_bal').value;
+  const move = +document.getElementById('mmm_move').value || 0;
+  const next = +document.getElementById('mmm_next').value || 0;
+  const other = +document.getElementById('mmm_other').value || 0;
+  if (!val || !bal) { alert('Please enter home value and mortgage balance.'); return; }
+  const minPrice = bal + (val * 0.06) + move + next + other;
+  const adjustedMin = minPrice / 0.94;
+  document.getElementById('mmm_label').textContent = 'Minimum Offer to Accept';
+  document.getElementById('mmm_main').textContent = fmt(adjustedMin);
+  document.getElementById('mmm_sub').textContent = `At this price you would net enough to pay off your ${fmt(bal)} mortgage, cover ~6% in realtor fees, ${fmt(move)} in moving costs, ${fmt(next)} for your next down payment, and ${fmt(other)} in other costs.`;
+  const surplus = val - adjustedMin;
+  const ins = document.getElementById('mmm_insight');
+  if (surplus >= 0) ins.innerHTML = `<div class="c-insight">Your home's current value is already ${fmt(surplus)} above your make-me-move number. Any offer at or above ${fmt(adjustedMin)} puts money in your pocket after everything is covered.</div>`;
+  else ins.innerHTML = `<div class="c-insight">Your home's current value is ${fmt(Math.abs(surplus))} below your number right now. Low-cost improvements, reducing transition costs, or simply letting appreciation work can close that gap quickly.</div>`;
+  document.getElementById('mmm_result').classList.add('show');
+}
+
+function calcMMMBuyer() {
+  const payment = +document.getElementById('mmm_b_payment').value;
+  const down = +document.getElementById('mmm_b_down').value || 0;
+  const rate = +document.getElementById('mmm_b_rate').value;
+  const term = +document.getElementById('mmm_b_term').value;
+  const extra = +document.getElementById('mmm_b_extra').value || 0;
+  if (!payment || !rate) { alert('Please fill in payment and interest rate.'); return; }
+  const piPayment = payment - extra;
+  if (piPayment <= 0) { alert('Your extra costs exceed your max payment.'); return; }
+  const r = rate / 100 / 12, n = term * 12;
+  const maxLoan = piPayment * (Math.pow(1+r,n) - 1) / (r * Math.pow(1+r,n));
+  const maxPrice = maxLoan + down;
+  document.getElementById('mmm_label').textContent = 'Max Price Worth Paying';
+  document.getElementById('mmm_main').textContent = fmt(maxPrice);
+  document.getElementById('mmm_sub').textContent = `With ${fmt(down)} down, a ${rate}% rate, and ${fmt(extra)}/mo in taxes & insurance, you can finance ${fmt(maxLoan)} — keeping your total payment at ${fmt(payment)}/mo.`;
+  document.getElementById('mmm_insight').innerHTML = `<div class="c-insight">If a home is listed above ${fmt(maxPrice)}, ask the seller for a <strong>Seller's Assist</strong> — they cover some of your closing costs, which effectively brings the deal within reach without lowering the sale price. Check the Lingo tab to learn how.</div>`;
+  document.getElementById('mmm_result').classList.add('show');
+}
+
+// ═══════════════════════════════════
+// ADMIN
+// ═══════════════════════════════════
+const ADMIN_PASSWORD = 'propertunities2024';
+const STORAGE_KEY = 'propertunities_cards';
+const EMOJIS = ['🏠','🏡','🏘️','🏗️','💰','💵','💸','📈','📊','📉','🔑','🗝️','🏦','💳','🧾','📋','📅','✅','⭐','🌟','💡','⚡','🔧','🛠️','🪛','🔍','🎯','🚀','📌','⚠️','🎉','🏆','💎','🌿','🌱','☀️','❄️','🔥','💧','🌊','📝','✏️','📐','🧮','🪜','🔄','♻️','🤝','👋'];
+let adminUnlocked = false, selectedEmoji = '🏠', customCards = [];
+
+function loadCustomCards() { try { customCards = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { customCards = []; } }
+function saveCustomCards() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(customCards)); } catch(e) {} }
+function getAllCards() { return [...ALL_CARDS, ...customCards]; }
+
+function openAdmin() {
+  document.getElementById('adminPanel').classList.add('open');
+  document.getElementById('pwInput').value = '';
+  document.getElementById('pwError').style.display = 'none';
+  if (adminUnlocked) showAdminContent(); else showPwGate();
+}
+function closeAdmin() { document.getElementById('adminPanel').classList.remove('open'); }
+function showPwGate() { document.getElementById('pwGate').style.display = 'flex'; document.getElementById('adminContent').style.display = 'none'; setTimeout(() => document.getElementById('pwInput').focus(), 300); }
+function showAdminContent() { document.getElementById('pwGate').style.display = 'none'; document.getElementById('adminContent').style.display = 'flex'; updateAdminBadge(); buildEmojiGrid(); renderManageList(); setTimeout(injectAgentTab, 50); }
+function checkPw() {
+  if (document.getElementById('pwInput').value === ADMIN_PASSWORD) { adminUnlocked = true; showAdminContent(); }
+  else { document.getElementById('pwError').style.display = 'block'; document.getElementById('pwInput').value = ''; document.getElementById('pwInput').focus(); }
+}
+// switchAdminTab handled by dashboard extension below
+function buildEmojiGrid() {
+  document.getElementById('emojiGrid').innerHTML = EMOJIS.map(e => `<div class="emoji-opt ${e===selectedEmoji?'selected':''}" onclick="selectEmoji('${e}',this)">${e}</div>`).join('');
+}
+function selectEmoji(emoji, el) { selectedEmoji = emoji; document.querySelectorAll('.emoji-opt').forEach(e => e.classList.remove('selected')); el.classList.add('selected'); }
+function saveNewCard() {
+  const title = document.getElementById('a_title').value.trim();
+  const body = document.getElementById('a_body').value.trim();
+  const tag = document.getElementById('a_tag').value.trim();
+  const cat = document.getElementById('a_cat').value;
+  const theme = document.getElementById('a_theme').value;
+  if (!title || !body) { alert('Please fill in title and body.'); return; }
+  const tagMap = {'theme-gold':'tag-gold','theme-terra':'tag-terra','theme-sage':'tag-sage','theme-sky':'tag-sky','theme-lavender':'tag-lavender'};
+  const processedBody = body.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');
+  customCards.push({ id: Date.now(), cat, theme, tag: tagMap[theme], tagText: tag||'Tip', emoji: selectedEmoji, title, body: processedBody, custom: true });
+  saveCustomCards();
+  document.getElementById('a_title').value = ''; document.getElementById('a_body').value = ''; document.getElementById('a_tag').value = '';
+  selectedEmoji = '🏠'; buildEmojiGrid(); updateAdminBadge(); initDeck();
+  showToast('Card added!');
+}
+function deleteCustomCard(id) {
+  if (!confirm('Delete this card?')) return;
+  customCards = customCards.filter(c => c.id !== id);
+  saveCustomCards(); renderManageList(); updateAdminBadge(); initDeck();
+  showToast('Card deleted.');
+}
+function renderManageList() {
+  const list = document.getElementById('adminCardList');
+  if (!customCards.length) { list.innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--ink-dim);font-size:13px;">No custom cards yet.</div>'; return; }
+  list.innerHTML = customCards.map(c => `<div class="admin-card-item"><div class="aci-emoji">${c.emoji}</div><div class="aci-info"><div class="aci-title">${c.title}</div><div class="aci-cat">${getCatLabel(c.cat)}</div></div><button class="aci-del" onclick="deleteCustomCard(${c.id})">Delete</button></div>`).join('');
+}
+function updateAdminBadge() { document.getElementById('totalBadge').textContent = `${ALL_CARDS.length + customCards.length} cards`; }
+function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
+
+// ═══════════════════════════════════
+// LINGO
+// ═══════════════════════════════════
+const LINGO = [
+  {term:"Seller's Assist",cat:"buyer",emoji:"🤝",badge:"lb-buyer",def:"When the seller agrees to pay a portion of the buyers closing costs — typically 2–6% of the purchase price. It does not lower the sale price; the seller credits money back at closing.",tip:"💡 Instead of asking for a price cut, ask for a Seller's Assist. Sellers often prefer it because it keeps their sale price high, while you get real cash back at closing."},
+  {term:"Closing Costs",cat:"buyer",emoji:"📋",badge:"lb-buyer",def:"Fees paid at the end of a real estate transaction, typically 2–5% of the loan amount. These include lender fees, title insurance, appraisal, attorney fees, and prepaids.",tip:"💡 Always ask your lender for a Loan Estimate within 3 days of applying — it breaks down every closing cost so there are no surprises."},
+  {term:"Earnest Money",cat:"buyer",emoji:"💵",badge:"lb-buyer",def:"A deposit made when submitting an offer — typically 1–3% of the purchase price. Shows the seller you are serious. If the deal closes, it applies toward your down payment.",tip:"💡 Always have inspection and financing contingencies in your contract to protect your earnest money if the deal falls through."},
+  {term:"Contingency",cat:"buyer",emoji:"🛡️",badge:"lb-buyer",def:"A condition that must be met for the sale to proceed. Common ones: financing (you get approved), inspection (home passes), and appraisal (home values at or above purchase price).",tip:"💡 In hot markets buyers sometimes waive contingencies to win — but this carries real risk. Never waive inspection without understanding what you are taking on."},
+  {term:"Pre-Approval",cat:"buyer",emoji:"✅",badge:"lb-buyer",def:"A lenders written commitment to loan you up to a specific amount, based on verified income, assets, credit, and employment. Much stronger than pre-qualification.",tip:"💡 Get pre-approved before seriously touring homes. Many buyers are surprised their budget is higher — or lower — than expected."},
+  {term:"Appraisal",cat:"buyer",emoji:"🔍",badge:"lb-buyer",def:"An independent professional assessment of a home's market value, ordered by the lender. If it comes in below the purchase price, the lender only finances the appraised value.",tip:"💡 If an appraisal comes in low you can renegotiate the price, pay the difference in cash, or walk away if you have an appraisal contingency."},
+  {term:"Clear to Close",cat:"buyer",emoji:"🟢",badge:"lb-buyer",def:"The phrase from your lender meaning all loan conditions are met and you are approved to close. Typically happens 1–3 days before closing day.",tip:"💡 Once you get Clear to Close, do not open new credit, change jobs, or make large purchases — any of these can kill the loan at the last minute."},
+  {term:"Seller's Disclosure",cat:"seller",emoji:"📄",badge:"lb-seller",def:"A document the seller must complete disclosing known issues — past flooding, roof repairs, foundation problems, HOA disputes. Requirements vary by state.",tip:"💡 Read every line. The seller has legal liability if they lie or omit known problems."},
+  {term:"Listing Agent",cat:"seller",emoji:"🏷️",badge:"lb-seller",def:"The real estate agent who represents the seller. Their job is to get the highest price and best terms for the seller — not for you as the buyer.",tip:"💡 The listing agent works for the seller. As a buyer, you want your own agent representing your interests."},
+  {term:"Buyer's Agent",cat:"buyer",emoji:"🤲",badge:"lb-buyer",def:"An agent who exclusively represents the buyers interests — helping find homes, write offers, negotiate, and guide through closing.",tip:"💡 Since 2024 NAR rule changes, buyers agent compensation must be negotiated upfront. Always clarify how your agent is paid before signing anything."},
+  {term:"Escalation Clause",cat:"buyer",emoji:"📈",badge:"lb-buyer",def:"A clause that automatically beats competing offers by a set amount up to a max cap. Example: I offer $300K and will beat any offer by $2,000 up to $325,000.",tip:"💡 Escalation clauses help you win without blindly overpaying — but they reveal your ceiling to the seller. Use strategically."},
+  {term:"Under Contract",cat:"general",emoji:"📝",badge:"lb-general",def:"A home with an accepted offer that is in process but not yet closed. Still available if the deal falls through.",tip:"💡 Homes fall out of contract regularly. Ask your agent about a backup position on any home you love that goes under contract."},
+  {term:"Title Insurance",cat:"general",emoji:"🛡️",badge:"lb-general",def:"Protects against ownership disputes — undisclosed liens, forged deeds, or public record errors. Two types: lenders (required) and owners (highly recommended).",tip:"💡 Owner's title insurance is a one-time fee that protects you as long as you own the home. Title problems can cost you the entire property."},
+  {term:"HOA",cat:"general",emoji:"🏘️",badge:"lb-general",def:"Homeowners Association — enforces community rules and collects fees for shared maintenance. Fees range from $50 to $1,000+ per month depending on the community.",tip:"💡 Review the HOA's financials, rules, and meeting minutes before buying. An HOA with low reserves or pending lawsuits is a red flag."},
+  {term:"Homestead Exemption",cat:"general",emoji:"🏡",badge:"lb-general",def:"A legal provision that reduces the taxable value of your primary residence, lowering your property tax bill. Amounts and rules vary significantly by state.",tip:"💡 File as soon as you close — most states have a spring deadline. It is free and can save hundreds per year."},
+  {term:"PMI",cat:"mortgage",emoji:"🚫",badge:"lb-mortgage",def:"Private Mortgage Insurance — required when your down payment is below 20%. Protects the lender, not you. Typically 0.5–1.5% of the loan annually.",tip:"💡 At 20% equity you can request cancellation. At 22% the lender is legally required to remove it under the Homeowners Protection Act."},
+  {term:"DTI Ratio",cat:"mortgage",emoji:"📊",badge:"lb-mortgage",def:"Debt-to-Income Ratio — the percentage of gross monthly income going to debt. Lenders use front-end (housing only, ideally under 28%) and back-end (all debts, ideally under 43%).",tip:"💡 Paying off one debt before applying can meaningfully drop your DTI and qualify you for a better rate."},
+  {term:"Discount Points",cat:"mortgage",emoji:"📉",badge:"lb-mortgage",def:"Upfront fees paid to buy down your interest rate. One point = 1% of the loan and typically lowers the rate by 0.25%.",tip:"💡 Divide the cost of points by your monthly savings to find your break-even. If you will stay past that date, buying points wins."},
+  {term:"Rate Lock",cat:"mortgage",emoji:"🔒",badge:"lb-mortgage",def:"An agreement locking your interest rate for a set period — typically 30–60 days — while your loan processes. Protects you if rates rise before closing.",tip:"💡 Lock once you have an accepted offer. If closing is delayed you may need to pay for an extension."},
+  {term:"ARM Loan",cat:"mortgage",emoji:"🎢",badge:"lb-mortgage",def:"Adjustable Rate Mortgage — fixed for an initial period then adjusts periodically based on a market index. Often starts lower than fixed rates but carries future uncertainty.",tip:"💡 ARMs make sense if you plan to sell or refi before the adjustment period. If rates spike and you cannot leave, payments can jump significantly."},
+  {term:"Cash-out Refinance",cat:"mortgage",emoji:"💸",badge:"lb-mortgage",def:"Refinancing for more than you owe and pocketing the difference. Example: owe $200K on a $350K home, refi for $250K, and take $50K cash.",tip:"💡 Great for value-adding renovations. Make sure the use of funds justifies the new loan terms and added debt."},
+  {term:"1031 Exchange",cat:"invest",emoji:"🔄",badge:"lb-invest",def:"Lets you sell an investment property and roll 100% of proceeds into a new property, deferring capital gains taxes indefinitely. Completely legal.",tip:"💡 Must identify the replacement property within 45 days and close within 180. Always use a qualified intermediary — you cannot touch the money."},
+  {term:"BRRRR Method",cat:"invest",emoji:"🏗️",badge:"lb-invest",def:"Buy, Rehab, Rent, Refinance, Repeat. Buy distressed properties, fix them, rent them out, refinance to pull cash back out, then repeat with the same capital.",tip:"💡 The magic is recycling the same money across multiple properties. Key is forcing appreciation through renovation, then extracting equity via refi."},
+  {term:"Cap Rate",cat:"invest",emoji:"📊",badge:"lb-invest",def:"Capitalization Rate — Net Operating Income divided by Property Value. A quick way to compare investment properties — higher cap rate generally means higher return but also higher risk.",tip:"💡 Cap rate ignores financing. Best used to compare similar properties in the same market, not across different cities or property types."}
+];
+
+let currentLingoCat = "all", currentLingoSearch = "";
+
+function renderLingo() {
+  const list = document.getElementById("lingoList");
+  let items = LINGO;
+  if (currentLingoCat !== "all") items = items.filter(i => i.cat === currentLingoCat);
+  if (currentLingoSearch) {
+    const q = currentLingoSearch.toLowerCase();
+    items = items.filter(i => i.term.toLowerCase().includes(q) || i.def.toLowerCase().includes(q));
+  }
+  if (!items.length) { list.innerHTML = "<div class='lingo-empty'>No terms found.</div>"; return; }
+  list.innerHTML = items.map(item => `
+    <div class="lingo-item" onclick="toggleLingo(this)">
+      <div class="lingo-item-header">
+        <div class="lingo-item-left">
+          <span class="lingo-emoji">${item.emoji}</span>
+          <span class="lingo-term">${item.term}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="lingo-badge ${item.badge}">${item.cat}</span>
+          <span class="lingo-chevron">›</span>
+        </div>
+      </div>
+      <div class="lingo-body">
+        <div class="lingo-def">${item.def}</div>
+        <div class="lingo-tip">${item.tip}</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function toggleLingo(el) {
+  const isOpen = el.classList.contains("open");
+  document.querySelectorAll(".lingo-item.open").forEach(i => i.classList.remove("open"));
+  if (!isOpen) el.classList.add("open");
+}
+
+function filterLingoCat(cat, btn) {
+  currentLingoCat = cat;
+  document.querySelectorAll(".lingo-cat-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  renderLingo();
+}
+
+function filterLingo(val) {
+  currentLingoSearch = val;
+  renderLingo();
+}
+
+// ═══ INIT ═══
+loadCustomCards();
+initDeck();
+renderLingo();
+
+// ═══════════════════════════════════════════════════
+// DASHBOARD SYSTEM
+// ═══════════════════════════════════════════════════
+const DASH_KEY = 'propertunities_dashboard';
+const AGENT_KEY = 'propertunities_agent_data';
+const DASH_PW = 'agent2024';
+
+let dashProfile = null;
+let agentData = {};
+let currentProfileType = null;
+let currentEditSection = null;
+
+function openDashboard() {
+  document.getElementById('dashPanel').classList.add('open');
+  dashProfile = loadDashProfile();
+  if (dashProfile) {
+    showDashHome();
+  } else {
+    document.getElementById('dashOnboard').style.display = 'block';
+    document.getElementById('dashHome').style.display = 'none';
+    goOnboardStep(1);
+  }
+}
+
+function closeDashboard() {
+  document.getElementById('dashPanel').classList.remove('open');
+}
+
+function loadDashProfile() {
+  try { return JSON.parse(localStorage.getItem(DASH_KEY)); } catch(e) { return null; }
+}
+
+function saveDashProfile(p) {
+  try { localStorage.setItem(DASH_KEY, JSON.stringify(p)); } catch(e) {}
+}
+
+function loadAgentData() {
+  try { return JSON.parse(localStorage.getItem(AGENT_KEY) || '{}'); } catch(e) { return {}; }
+}
+
+function saveAgentData(d) {
+  try { localStorage.setItem(AGENT_KEY, JSON.stringify(d)); } catch(e) {}
+}
+
+function selectProfileType(type, el) {
+  currentProfileType = type;
+  document.querySelectorAll('.profile-type-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  // Show/hide fields
+  ['renter','firsttime','homeowner','investor','seasoned'].forEach(t => {
+    const el2 = document.getElementById(t + '-fields');
+    if (el2) el2.style.display = t === type ? 'block' : 'none';
+  });
+}
+
+function goOnboardStep(n) {
+  document.querySelectorAll('.onboard-step').forEach(s => s.classList.remove('active'));
+  const step = document.getElementById('onboard-step-' + n);
+  if (step) step.classList.add('active');
+}
+
+function saveDashboardProfile() {
+  if (!currentProfileType) { showToast('Please select your profile type first'); goOnboardStep(1); return; }
+  const name = document.getElementById('ob_name').value.trim();
+  const email = document.getElementById('ob_email').value.trim();
+  if (!name) { showToast('Please enter your name'); return; }
+
+  let profile = { type: currentProfileType, name, email, createdAt: Date.now() };
+
+  if (currentProfileType === 'renter') {
+    profile.leaseEnd = document.getElementById('ob_lease_end').value;
+    profile.rent = +document.getElementById('ob_rent').value || 0;
+    profile.savingsGoal = +document.getElementById('ob_savings_goal').value || 0;
+    profile.currentSavings = +document.getElementById('ob_current_savings').value || 0;
+    profile.targetBudget = +document.getElementById('ob_target_budget').value || 0;
+  } else if (currentProfileType === 'firsttime') {
+    profile.savingsGoal = +document.getElementById('ob_ft_goal').value || 0;
+    profile.currentSavings = +document.getElementById('ob_ft_savings').value || 0;
+    profile.targetBudget = +document.getElementById('ob_ft_budget').value || 0;
+    profile.preapproval = document.getElementById('ob_ft_preapproval').value;
+    profile.stage = document.getElementById('ob_ft_stage').value;
+  } else if (currentProfileType === 'homeowner') {
+    profile.address = document.getElementById('ob_address').value;
+    profile.purchasePrice = +document.getElementById('ob_purchase').value || 0;
+    profile.currentValue = +document.getElementById('ob_value').value || 0;
+    profile.balance = +document.getElementById('ob_balance').value || 0;
+    profile.payment = +document.getElementById('ob_payment').value || 0;
+    profile.loanTerm = +document.getElementById('ob_term').value || 30;
+    profile.yearsLeft = +document.getElementById('ob_years_left').value || 0;
+  } else if (currentProfileType === 'investor') {
+    profile.numProps = +document.getElementById('ob_num_props').value || 1;
+    profile.portfolioVal = +document.getElementById('ob_portfolio_val').value || 0;
+    profile.rentalIncome = +document.getElementById('ob_rental_income').value || 0;
+    profile.rentalExpenses = +document.getElementById('ob_rental_expenses').value || 0;
+  } else if (currentProfileType === 'seasoned') {
+    profile.sellAddress = document.getElementById('ob_sell_address').value;
+    profile.sellValue = +document.getElementById('ob_sell_value').value || 0;
+    profile.sellBalance = +document.getElementById('ob_sell_balance').value || 0;
+    profile.buyBudget = +document.getElementById('ob_buy_budget').value || 0;
+    profile.sellTimeline = document.getElementById('ob_sell_timeline').value;
+  }
+
+  saveDashProfile(profile);
+  dashProfile = profile;
+  showToast('Dashboard created!');
+  showDashHome();
+}
+
+function showDashHome() {
+  document.getElementById('dashOnboard').style.display = 'none';
+  const home = document.getElementById('dashHome');
+  home.style.display = 'flex';
+  agentData = loadAgentData();
+
+  // Welcome
+  document.getElementById('dashWelcomeName').textContent = 'Welcome, ' + dashProfile.name;
+  const typeLabels = { renter:'🏠 Renter', firsttime:'🔑 First-Time Buyer', homeowner:'🏡 Homeowner', investor:'📈 Investor', seasoned:'🔄 Seasoned Buyer' };
+  document.getElementById('dashWelcomeType').textContent = typeLabels[dashProfile.type] || dashProfile.type;
+  document.getElementById('dashWelcomeSub').textContent = 'Your personalized real estate command center';
+
+  // Build tabs + content
+  buildDashTabs();
+  buildNotifications();
+  checkNotifDot();
+}
+
+function buildDashTabs() {
+  const tabs = { renter: ['Overview','Reminders','Savings'], firsttime: ['Overview','Checklist','Savings'], homeowner: ['Overview','Maintenance','Equity','Vendors'], investor: ['Overview','Portfolio','Returns'], seasoned: ['Overview','Selling','Buying'] };
+  const myTabs = tabs[dashProfile.type] || ['Overview'];
+  const tabBar = document.getElementById('dashTabs');
+  tabBar.innerHTML = myTabs.map((t,i) => `<button class="dash-tab ${i===0?'active':''}" onclick="switchDashTab(${i},this)">${t}</button>`).join('');
+  renderDashTab(0);
+}
+
+function switchDashTab(i, btn) {
+  document.querySelectorAll('.dash-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderDashTab(i);
+}
+
+function renderDashTab(i) {
+  const content = document.getElementById('dashTabContent');
+  const renderers = { renter: [renderRenterOverview, renderRenterReminders, renderRenterSavings], firsttime: [renderFTOverview, renderFTChecklist, renderFTSavings], homeowner: [renderHOOverview, renderHOMaintenance, renderHOEquity, renderHOVendors], investor: [renderInvOverview, renderInvPortfolio, renderInvReturns], seasoned: [renderSeasOverview, renderSeasSelling, renderSeasBuying] };
+  const fns = renderers[dashProfile.type] || [() => '<div class="dash-section"><p>Coming soon</p></div>'];
+  content.innerHTML = (fns[i] || fns[0])();
+}
+
+const fmt2 = n => '$' + Math.abs(Math.round(n)).toLocaleString('en-US');
+const pct = (a,b) => b > 0 ? ((a/b)*100).toFixed(1) + '%' : '—';
+
+// ── RENTER ──
+function renderRenterOverview() {
+  const p = dashProfile;
+  const leaseStr = p.leaseEnd ? new Date(p.leaseEnd).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}) : 'Not set';
+  const daysLeft = p.leaseEnd ? Math.ceil((new Date(p.leaseEnd) - new Date()) / 86400000) : null;
+  const savPct = p.savingsGoal > 0 ? Math.min((p.currentSavings / p.savingsGoal) * 100, 100) : 0;
+  const note = agentData.renterNote || '';
+  return `
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Lease Status</div><button class="dash-edit-btn" onclick="editSection('lease')">Edit</button></div>
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val">${daysLeft !== null ? daysLeft + ' days' : '—'}</div><div class="dash-stat-lbl">Until Lease Ends</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${p.rent ? fmt2(p.rent) : '—'}</div><div class="dash-stat-lbl">Monthly Rent</div></div>
+      </div>
+      <p style="font-size:12px;color:var(--ink-dim);margin-top:10px;">Lease ends: <strong style="color:var(--ink)">${leaseStr}</strong></p>
+      ${daysLeft !== null && daysLeft <= 120 ? '<div class="agent-note">⚠️ <strong>Heads up:</strong> Your lease ends in under 4 months. Now is the time to start your pre-approval process. See the Reminders tab for your action plan.</div>' : ''}
+    </div>
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Down Payment Progress</div><button class="dash-edit-btn" onclick="editSection('savings')">Edit</button></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--primary)">${p.currentSavings ? fmt2(p.currentSavings) : '—'}</span>
+        <span style="font-size:12px;color:var(--ink-dim)">goal: ${p.savingsGoal ? fmt2(p.savingsGoal) : '—'}</span>
+      </div>
+      <div class="progress-wrap"><div class="progress-bar" style="width:${savPct}%"></div></div>
+      <p style="font-size:12px;color:var(--ink-dim);margin-top:6px;">${savPct.toFixed(0)}% of your down payment goal saved</p>
+      ${p.targetBudget ? '<p style="font-size:12px;color:var(--ink-dim);margin-top:4px;">Target home budget: <strong style="color:var(--ink)">' + fmt2(p.targetBudget) + '</strong></p>' : ''}
+    </div>
+    ${note ? '<div class="dash-section"><div class="dash-section-header"><div class="dash-section-title">Agent Notes <span class="dash-agent-badge">From Your Agent</span></div></div><div class="agent-note">' + note + '</div></div>' : ''}
+    <div class="dash-section">
+      <div class="dash-section-title" style="margin-bottom:10px;">Email Reminders</div>
+      <div class="email-note">📧 <strong>Coming soon:</strong> Enter your email above and we'll send you reminders before your lease ends, when to start pre-approval, and monthly savings check-ins. Email notifications require the full app.</div>
+    </div>`;
+}
+
+function renderRenterReminders() {
+  const p = dashProfile;
+  const daysLeft = p.leaseEnd ? Math.ceil((new Date(p.leaseEnd) - new Date()) / 86400000) : 180;
+  const items = [
+    { icon:'📋', text:'Check your credit score', due:'Do this now — free at annualcreditreport.com', urgent: true },
+    { icon:'💰', text:'Set up automatic savings transfers', due:'Start saving toward your down payment every month', urgent: daysLeft < 180 },
+    { icon:'🏦', text:'Research 3 lenders and compare rates', due: daysLeft <= 120 ? '⚠️ Do this now — lease is under 4 months away' : '4 months before your lease ends', urgent: daysLeft <= 120 },
+    { icon:'✅', text:'Start the pre-approval process', due: daysLeft <= 120 ? '⚠️ Your lease ends soon — start this week' : '3–4 months before lease ends', urgent: daysLeft <= 90 },
+    { icon:'🔍', text:'Begin actively touring homes', due:'2–3 months before lease ends', urgent: daysLeft <= 75 },
+    { icon:'📝', text:'Have your paperwork ready', due:'Pay stubs, bank statements, tax returns (2 years)', urgent: daysLeft <= 60 },
+    { icon:'🤝', text:'Find a buyer\'s agent', due:'They cost you nothing and fight for your interests', urgent: false },
+  ];
+  const checkData = JSON.parse(localStorage.getItem('renter_checks') || '{}');
+  return '<div class="dash-section"><div class="dash-section-title" style="margin-bottom:12px;">Your Pre-Approval Roadmap</div><div class="dash-checklist">' +
+    items.map((item,i) => {
+      const done = checkData[i];
+      return `<div class="check-item ${done?'done':''}" onclick="toggleCheck('renter_checks',${i},this)">
+        <div class="check-box"></div>
+        <div class="check-text">${item.text}<div class="check-due" style="${item.urgent?'color:var(--accent3);font-weight:600;':''}">${item.due}</div></div>
+      </div>`;
+    }).join('') + '</div></div>';
+}
+
+function renderRenterSavings() {
+  const p = dashProfile;
+  const goal = p.savingsGoal || 0;
+  const saved = p.currentSavings || 0;
+  const gap = Math.max(goal - saved, 0);
+  const mo6 = gap > 0 ? fmt2(gap/6) : '—';
+  const mo12 = gap > 0 ? fmt2(gap/12) : '—';
+  const mo18 = gap > 0 ? fmt2(gap/18) : '—';
+  const convBuy = saved > 0 ? fmt2(saved / 0.05) : '—';
+  const fhaBuy = saved > 0 ? fmt2(saved / 0.035) : '—';
+  return `
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Savings Plan</div><button class="dash-edit-btn" onclick="editSection('savings')">Edit</button></div>
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val">${saved ? fmt2(saved) : '—'}</div><div class="dash-stat-lbl">Saved So Far</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${goal ? fmt2(goal) : '—'}</div><div class="dash-stat-lbl">Your Goal</div></div>
+      </div>
+      ${gap > 0 ? '<div style="margin-top:14px;"><p style="font-size:12px;color:var(--ink-dim);margin-bottom:10px;font-weight:600;">To close the ' + fmt2(gap) + ' gap, save:</p><div class="dash-stat-grid"><div class="dash-stat"><div class="dash-stat-val" style="font-size:18px;">' + mo6 + '/mo</div><div class="dash-stat-lbl">Over 6 months</div></div><div class="dash-stat"><div class="dash-stat-val" style="font-size:18px;">' + mo12 + '/mo</div><div class="dash-stat-lbl">Over 12 months</div></div></div></div>' : '<div class="agent-note" style="background:var(--primary-dim);border-color:var(--primary-border);color:var(--primary);">You hit your savings goal! Time to get pre-approved.</div>'}
+    </div>
+    ${saved > 0 ? `<div class="dash-section">
+      <div class="dash-section-title" style="margin-bottom:10px;">What You Can Buy Right Now</div>
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val" style="font-size:18px;">${convBuy}</div><div class="dash-stat-lbl">Conventional (5% down)</div></div>
+        <div class="dash-stat"><div class="dash-stat-val" style="font-size:18px;">${fhaBuy}</div><div class="dash-stat-lbl">FHA (3.5% down)*</div></div>
+      </div>
+      <p style="font-size:11px;color:var(--ink-dim);margin-top:8px;">*FHA recommended only when savings are limited relative to income. Ask your agent which is right for you.</p>
+    </div>` : ''}`;
+}
+
+// ── FIRST TIME BUYER ──
+function renderFTOverview() {
+  const p = dashProfile;
+  const savPct = p.savingsGoal > 0 ? Math.min((p.currentSavings/p.savingsGoal)*100,100) : 0;
+  const stageLabels = { learning:'Learning & Preparing', saving:'Actively Saving', searching:'Actively Searching', offer:'Making Offers', under_contract:'Under Contract 🎉' };
+  const preLabels = { not_started:'Not Started', in_progress:'In Progress', approved:'Pre-Approved ✓' };
+  const note = agentData.ftNote || '';
+  return `
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Your Journey</div><button class="dash-edit-btn" onclick="editSection('ft_overview')">Edit</button></div>
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val" style="font-size:16px;">${stageLabels[p.stage]||'—'}</div><div class="dash-stat-lbl">Current Stage</div></div>
+        <div class="dash-stat"><div class="dash-stat-val" style="font-size:16px;">${preLabels[p.preapproval]||'—'}</div><div class="dash-stat-lbl">Pre-Approval</div></div>
+      </div>
+      ${p.targetBudget ? '<p style="font-size:12px;color:var(--ink-dim);margin-top:10px;">Target budget: <strong style="color:var(--ink)">' + fmt2(p.targetBudget) + '</strong></p>' : ''}
+    </div>
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Down Payment Progress</div><button class="dash-edit-btn" onclick="editSection('ft_savings')">Edit</button></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--primary)">${fmt2(p.currentSavings||0)}</span>
+        <span style="font-size:12px;color:var(--ink-dim)">goal: ${fmt2(p.savingsGoal||0)}</span>
+      </div>
+      <div class="progress-wrap"><div class="progress-bar" style="width:${savPct}%"></div></div>
+      <p style="font-size:12px;color:var(--ink-dim);margin-top:6px;">${savPct.toFixed(0)}% saved toward your down payment</p>
+    </div>
+    ${note ? '<div class="dash-section"><div class="dash-section-header"><div class="dash-section-title">Agent Notes <span class="dash-agent-badge">From Your Agent</span></div></div><div class="agent-note">' + note + '</div></div>' : ''}`;
+}
+
+function renderFTChecklist() {
+  const items = [
+    { text:'Pull your credit report (free at annualcreditreport.com)', due:'Do this first' },
+    { text:'Set a realistic budget using the Affordability Calculator', due:'Calculate tab → Affordability' },
+    { text:'Spend 30 min in the Lingo tab — know the language', due:'Lingo tab' },
+    { text:'Open a dedicated savings account for down payment', due:'Automate transfers monthly' },
+    { text:'Research 3 lenders and get pre-approval', due:'Pre-approval strengthens every offer' },
+    { text:'Find a buyer\'s agent who represents only you', due:'They cost you nothing' },
+    { text:'Set up home search alerts in your target area', due:'Zillow, Realtor.com, or your agent\'s MLS' },
+    { text:'Attend at least 5 open houses before making an offer', due:'Build your eye for value' },
+    { text:'Make your first offer', due:'Your agent will guide the strategy' },
+    { text:'Negotiate inspection findings or a price adjustment', due:'After inspection' },
+    { text:'File homestead exemption after closing', due:'Do this the week you close' },
+  ];
+  const checkData = JSON.parse(localStorage.getItem('ft_checks') || '{}');
+  const done = Object.values(checkData).filter(Boolean).length;
+  return `<div class="dash-section">
+    <div class="dash-section-header"><div class="dash-section-title">Buyer's Checklist</div><span style="font-size:12px;color:var(--ink-dim)">${done}/${items.length} done</span></div>
+    <div class="progress-wrap" style="margin-bottom:14px;"><div class="progress-bar" style="width:${(done/items.length*100).toFixed(0)}%"></div></div>
+    <div class="dash-checklist">` +
+    items.map((item,i) => {
+      const isDone = checkData[i];
+      return `<div class="check-item ${isDone?'done':''}" onclick="toggleCheck('ft_checks',${i},this)">
+        <div class="check-box"></div>
+        <div class="check-text">${item.text}<div class="check-due">${item.due}</div></div>
+      </div>`;
+    }).join('') + '</div></div>';
+}
+
+function renderFTSavings() { return renderRenterSavings(); }
+
+// ── HOMEOWNER ──
+function renderHOOverview() {
+  const p = dashProfile;
+  const equity = (p.currentValue||0) - (p.balance||0);
+  const equityPct = p.currentValue > 0 ? ((equity/p.currentValue)*100).toFixed(1) : 0;
+  const gain = p.currentValue && p.purchasePrice ? p.currentValue - p.purchasePrice : 0;
+  const note = agentData.hoNote || '';
+  const equityCheckIn = agentData.equityCheckIn || null;
+  return `
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Home Summary</div><button class="dash-edit-btn" onclick="editSection('ho_overview')">Edit</button></div>
+      ${p.address ? '<p style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:12px;">📍 ' + p.address + '</p>' : ''}
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val">${p.currentValue ? fmt2(p.currentValue) : '—'}</div><div class="dash-stat-lbl">Est. Home Value</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${p.balance ? fmt2(p.balance) : '—'}</div><div class="dash-stat-lbl">Remaining Balance</div></div>
+        <div class="dash-stat"><div class="dash-stat-val" style="color:${equity>=0?'var(--primary)':'var(--accent3)'}">${fmt2(equity)}</div><div class="dash-stat-lbl">Your Equity</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${equityPct}%</div><div class="dash-stat-lbl">% You Own</div></div>
+      </div>
+      ${gain > 0 ? '<p style="font-size:12px;color:var(--ink-dim);margin-top:10px;">Value gained since purchase: <strong style="color:var(--primary)">' + fmt2(gain) + '</strong></p>' : ''}
+    </div>
+    ${equityCheckIn ? `<div class="dash-section"><div class="dash-section-header"><div class="dash-section-title">Equity Check-In <span class="dash-agent-badge">From Your Agent</span></div></div><div class="agent-note">${equityCheckIn}</div></div>` : ''}
+    ${note ? '<div class="dash-section"><div class="dash-section-header"><div class="dash-section-title">Agent Notes <span class="dash-agent-badge">From Your Agent</span></div></div><div class="agent-note">' + note + '</div></div>' : ''}`;
+}
+
+function renderHOMaintenance() {
+  const month = new Date().getMonth(); // 0-11
+  const season = month <= 1 || month === 11 ? 'winter' : month <= 4 ? 'spring' : month <= 7 ? 'summer' : 'fall';
+  const tasks = {
+    winter: [
+      { icon:'❄️', text:'Check roof for ice dams and snow buildup', due:'January–February' },
+      { icon:'🔥', text:'Change furnace filter', due:'Monthly in winter' },
+      { icon:'💧', text:'Check pipes in unheated spaces — prevent freezing', due:'During cold snaps' },
+      { icon:'🪟', text:'Check weatherstripping on doors and windows', due:'January' },
+      { icon:'🧯', text:'Test smoke & carbon monoxide detectors', due:'Every 6 months' },
+    ],
+    spring: [
+      { icon:'🌿', text:'Clean gutters and downspouts after winter', due:'March–April' },
+      { icon:'🔥', text:'Service A/C before summer heat', due:'April–May' },
+      { icon:'🌬️', text:'Replace HVAC air filters', due:'Every 90 days' },
+      { icon:'🏠', text:'Inspect roof for winter damage', due:'April' },
+      { icon:'🚿', text:'Check outdoor faucets and irrigation system', due:'April–May' },
+      { icon:'🏡', text:'Apply for Homestead Exemption if you haven\'t', due:'Deadline varies by state — usually April/May' },
+    ],
+    summer: [
+      { icon:'💨', text:'Check A/C refrigerant and coils', due:'June' },
+      { icon:'🌿', text:'Clean gutters mid-summer if trees are nearby', due:'July' },
+      { icon:'🔥', text:'Check smoke detectors and replace batteries', due:'July 4th reminder' },
+      { icon:'🏊', text:'Inspect deck/patio for loose boards or rot', due:'Before entertaining season' },
+      { icon:'🐜', text:'Check for pest activity around foundation', due:'Summer months' },
+    ],
+    fall: [
+      { icon:'🍂', text:'Clean gutters after leaves fall', due:'October–November' },
+      { icon:'🔥', text:'Service furnace before winter', due:'September–October' },
+      { icon:'🚰', text:'Drain and shut off outdoor faucets', due:'Before first frost' },
+      { icon:'🪟', text:'Caulk windows and doors', due:'October' },
+      { icon:'🧯', text:'Check fire extinguisher charge', due:'October' },
+      { icon:'🌬️', text:'Replace HVAC air filter', due:'Every 90 days' },
+    ]
+  };
+
+  const allYear = [
+    { icon:'💰', text:'Fund your 1% maintenance account', due:'$' + (dashProfile.currentValue ? Math.round(dashProfile.currentValue * 0.01 / 12).toLocaleString() : '—') + '/mo recommended' },
+    { icon:'📸', text:'Document any repairs or updates with photos + receipts', due:'After any work is done' },
+    { icon:'🔑', text:'Re-key locks if you\'ve had any contractor work', due:'As needed' },
+  ];
+
+  const checkKey = 'ho_maintenance_' + season;
+  const checkData = JSON.parse(localStorage.getItem(checkKey) || '{}');
+  const currentTasks = tasks[season];
+
+  const seasonLabel = { winter:'❄️ Winter', spring:'🌸 Spring', summer:'☀️ Summer', fall:'🍂 Fall' }[season];
+  const customTasks = agentData.customMaintenance || [];
+
+  return `<div class="dash-section">
+    <div class="dash-section-title" style="margin-bottom:12px;">${seasonLabel} Maintenance</div>
+    <div class="dash-checklist">` +
+    currentTasks.map((item,i) => {
+      const done = checkData[i];
+      return `<div class="check-item ${done?'done':''}" onclick="toggleCheck('${checkKey}',${i},this)">
+        <div class="check-box"></div>
+        <div class="check-text"><span style="margin-right:6px;">${item.icon}</span>${item.text}<div class="check-due">${item.due}</div></div>
+      </div>`;
+    }).join('') +
+    `</div></div>
+    <div class="dash-section">
+      <div class="dash-section-title" style="margin-bottom:12px;">Year-Round Tasks</div>
+      <div class="dash-checklist">` +
+    allYear.map((item,i) => `<div class="check-item"><div class="check-box" style="opacity:0.4;"></div><div class="check-text"><span style="margin-right:6px;">${item.icon}</span>${item.text}<div class="check-due">${item.due}</div></div></div>`).join('') +
+    `</div></div>` +
+    (customTasks.length ? `<div class="dash-section"><div class="dash-section-header"><div class="dash-section-title">Agent Added <span class="dash-agent-badge">From Your Agent</span></div></div><div class="dash-checklist">` +
+    customTasks.map((t,i) => `<div class="check-item"><div class="check-box" style="opacity:0.4;"></div><div class="check-text">${t.text}<div class="check-due">${t.due||''}</div></div></div>`).join('') + '</div></div>' : '');
+}
+
+function renderHOEquity() {
+  const p = dashProfile;
+  const equity = (p.currentValue||0) - (p.balance||0);
+  const equityPct = p.currentValue > 0 ? (equity/p.currentValue)*100 : 0;
+  const canCancelPMI = equityPct >= 20;
+  const canHELOC = equityPct >= 20;
+  const projections = [1,3,5,10].map(yr => {
+    const futureVal = (p.currentValue||0) * Math.pow(1.04, yr);
+    const remainingBal = p.balance > 0 && p.payment > 0 ? Math.max(p.balance - (p.payment * 0.3 * 12 * yr), 0) : (p.balance||0);
+    return { yr, val: fmt2(futureVal), eq: fmt2(futureVal - remainingBal) };
+  });
+  return `
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Equity Snapshot</div><button class="dash-edit-btn" onclick="editSection('ho_overview')">Update Values</button></div>
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val">${fmt2(equity)}</div><div class="dash-stat-lbl">Current Equity</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${equityPct.toFixed(1)}%</div><div class="dash-stat-lbl">% You Own</div></div>
+      </div>
+      <div style="margin-top:10px;">
+        ${canCancelPMI ? '<div class="agent-note" style="background:var(--primary-dim);border-color:var(--primary-border);color:var(--primary);">✓ You are above 20% — you can request PMI cancellation. Call your servicer today.</div>' : '<p style="font-size:12px;color:var(--ink-dim);margin-top:8px;">Reach 20% equity to cancel PMI and save $100–$300/month.</p>'}
+        ${canHELOC ? '<div class="agent-note" style="margin-top:8px;background:var(--primary-dim);border-color:var(--primary-border);color:var(--primary);">✓ You qualify for a HELOC. You can access your equity as a revolving credit line for renovations or investments.</div>' : ''}
+      </div>
+    </div>
+    <div class="dash-section">
+      <div class="dash-section-title" style="margin-bottom:12px;">Equity Projections (est. 4%/yr)</div>
+      <div class="dash-checklist">` +
+    projections.map(p2 => `<div class="check-item" style="cursor:default;">
+        <div class="check-box" style="background:var(--primary-dim);border-color:var(--primary-border);color:var(--primary);font-size:10px;font-weight:700;">${p2.yr}y</div>
+        <div class="check-text">Value: <strong>${p2.val}</strong><div class="check-due">Estimated equity: ${p2.eq}</div></div>
+      </div>`).join('') +
+    '</div></div>';
+}
+
+function renderHOVendors() {
+  const vendors = agentData.vendors || [];
+  return `<div class="dash-section">
+    <div class="dash-section-header"><div class="dash-section-title">Trusted Vendors <span class="dash-agent-badge">From Your Agent</span></div></div>
+    ${vendors.length === 0 ? '<div class="empty-state" style="padding:40px 0;"><div class="empty-icon" style="font-size:36px;">🔧</div><p style="font-size:13px;color:var(--ink-dim);">Your agent has not added vendors yet.<br>Ask them to log in and add trusted contractors.</p></div>' :
+    '<div class="vendor-list">' + vendors.map(v => `<div class="vendor-item">
+        <div class="vendor-icon">${v.icon||'🔧'}</div>
+        <div class="vendor-info"><div class="vendor-name">${v.name}</div><div class="vendor-detail">${v.specialty}${v.phone?' · '+v.phone:''}</div>${v.note?'<div class="vendor-detail" style="margin-top:2px;font-style:italic;">'+v.note+'</div>':''}</div>
+        ${v.phone ? '<a class="vendor-call" href="tel:'+v.phone+'">Call</a>' : ''}
+      </div>`).join('') + '</div>'}
+    <div class="email-note" style="margin-top:16px;">💡 <strong>For agents:</strong> Log into Admin (⚙️ icon) to add trusted vendors your clients can contact directly.</div>
+  </div>`;
+}
+
+// ── INVESTOR ──
+function renderInvOverview() {
+  const p = dashProfile;
+  const cashflow = (p.rentalIncome||0) - (p.rentalExpenses||0);
+  const cocReturn = p.portfolioVal > 0 ? ((cashflow*12/p.portfolioVal)*100).toFixed(1) : 0;
+  const note = agentData.invNote || '';
+  return `
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Portfolio Overview</div><button class="dash-edit-btn" onclick="editSection('inv_overview')">Edit</button></div>
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val">${p.numProps||'—'}</div><div class="dash-stat-lbl">Properties</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${p.portfolioVal?fmt2(p.portfolioVal):'—'}</div><div class="dash-stat-lbl">Portfolio Value</div></div>
+        <div class="dash-stat"><div class="dash-stat-val" style="color:${cashflow>=0?'var(--primary)':'var(--accent3)'}">${fmt2(cashflow)}/mo</div><div class="dash-stat-lbl">Net Cash Flow</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${cocReturn}%</div><div class="dash-stat-lbl">Cash-on-Cash</div></div>
+      </div>
+      ${cashflow < 0 ? '<div class="agent-note" style="background:rgba(224,123,84,0.08);border-color:rgba(224,123,84,0.25);color:#8A3A10;margin-top:10px;">⚠️ Your portfolio is currently cash-flow negative. Review expenses and consider rent adjustments.</div>' : ''}
+      ${note ? '<div class="agent-note" style="margin-top:10px;">' + note + '</div>' : ''}
+    </div>
+    <div class="dash-section">
+      <div class="dash-section-title" style="margin-bottom:10px;">Annual Income Snapshot</div>
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val">${p.rentalIncome?fmt2(p.rentalIncome*12):'—'}</div><div class="dash-stat-lbl">Gross Annual Income</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${p.rentalExpenses?fmt2(p.rentalExpenses*12):'—'}</div><div class="dash-stat-lbl">Annual Expenses</div></div>
+      </div>
+    </div>`;
+}
+
+function renderInvPortfolio() {
+  const properties = agentData.properties || [];
+  return `<div class="dash-section">
+    <div class="dash-section-header"><div class="dash-section-title">Properties <span class="dash-agent-badge">Agent + You</span></div></div>
+    ${properties.length === 0 ? `<div class="empty-state" style="padding:40px 0;"><div class="empty-icon" style="font-size:36px;">🏘️</div><p style="font-size:13px;color:var(--ink-dim);">No properties added yet.<br>Your agent can add each property with its details.</p></div>
+    <div class="email-note">💡 <strong>For agents:</strong> Log into Admin to add individual property details for your investor client.</div>` :
+    '<div class="prop-list">' + properties.map(p2 => `<div class="prop-card">
+        <div class="prop-address">📍 ${p2.address}</div>
+        <div class="prop-stats">
+          <div class="prop-stat"><div class="prop-stat-val">${p2.value?fmt2(p2.value):'—'}</div><div class="prop-stat-lbl">Value</div></div>
+          <div class="prop-stat"><div class="prop-stat-val">${p2.rent?fmt2(p2.rent):' —'}/mo</div><div class="prop-stat-lbl">Rent</div></div>
+          <div class="prop-stat"><div class="prop-stat-val">${p2.cashflow?fmt2(p2.cashflow):' —'}/mo</div><div class="prop-stat-lbl">Net Flow</div></div>
+        </div>
+        ${p2.note?'<div class="agent-note" style="margin-top:10px;font-size:11px;">'+p2.note+'</div>':''}
+      </div>`).join('') + '</div>'}
+  </div>`;
+}
+
+function renderInvReturns() {
+  const p = dashProfile;
+  const cashflow = (p.rentalIncome||0) - (p.rentalExpenses||0);
+  return `
+    <div class="dash-section">
+      <div class="dash-section-title" style="margin-bottom:12px;">Key Metrics</div>
+      <div class="dash-checklist">
+        <div class="check-item" style="cursor:default;">
+          <div class="check-box" style="background:var(--primary-dim);border-color:var(--primary-border);"></div>
+          <div class="check-text"><strong>1% Rule Check</strong><div class="check-due">Your avg rent should be ≥1% of property value. Benchmark: ${p.portfolioVal&&p.numProps?fmt2(p.portfolioVal/p.numProps*0.01)+'/mo per property':'add property values'}</div></div>
+        </div>
+        <div class="check-item" style="cursor:default;">
+          <div class="check-box" style="background:var(--primary-dim);border-color:var(--primary-border);"></div>
+          <div class="check-text"><strong>Cash-on-Cash Return</strong><div class="check-due">Your portfolio: ${p.portfolioVal>0?((cashflow*12/p.portfolioVal)*100).toFixed(1)+'%':'—'} (aim for 8%+)</div></div>
+        </div>
+        <div class="check-item" style="cursor:default;">
+          <div class="check-box" style="background:var(--primary-dim);border-color:var(--primary-border);"></div>
+          <div class="check-text"><strong>Depreciation Deduction</strong><div class="check-due">${p.portfolioVal?fmt2(p.portfolioVal/27.5)+'/year in paper deductions':'Add portfolio value to calculate'}</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dash-section">
+      <div class="dash-section-title" style="margin-bottom:10px;">Strategy Reminders</div>
+      <div class="agent-note">📋 When selling any investment property, talk to your agent and CPA about a <strong>1031 Exchange</strong> — roll 100% of proceeds into the next property and defer capital gains taxes indefinitely.</div>
+    </div>`;
+}
+
+// ── SEASONED BUYER ──
+function renderSeasOverview() {
+  const p = dashProfile;
+  const equity = (p.sellValue||0) - (p.sellBalance||0);
+  const realtorFees = (p.sellValue||0) * 0.06;
+  const netProceeds = equity - realtorFees;
+  const timelineLabels = { now:'Listed Now', '3mo':'Within 3 Months', '6mo':'Within 6 Months', exploring:'Still Deciding' };
+  return `
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Selling Side</div><button class="dash-edit-btn" onclick="editSection('seas_overview')">Edit</button></div>
+      ${p.sellAddress ? '<p style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:10px;">📍 ' + p.sellAddress + '</p>' : ''}
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val">${p.sellValue?fmt2(p.sellValue):'—'}</div><div class="dash-stat-lbl">Current Value</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${fmt2(equity)}</div><div class="dash-stat-lbl">Your Equity</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${netProceeds > 0 ? fmt2(netProceeds) : '—'}</div><div class="dash-stat-lbl">Est. Net Proceeds</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${timelineLabels[p.sellTimeline]||'—'}</div><div class="dash-stat-lbl">Sell Timeline</div></div>
+      </div>
+    </div>
+    <div class="dash-section">
+      <div class="dash-section-header"><div class="dash-section-title">Buying Side</div></div>
+      <div class="dash-stat-grid">
+        <div class="dash-stat"><div class="dash-stat-val">${p.buyBudget?fmt2(p.buyBudget):'—'}</div><div class="dash-stat-lbl">Buy Budget</div></div>
+        <div class="dash-stat"><div class="dash-stat-val">${netProceeds>0?fmt2(netProceeds):'—'}</div><div class="dash-stat-lbl">Available from Sale</div></div>
+      </div>
+      ${netProceeds > 0 && p.buyBudget ? '<p style="font-size:12px;color:var(--ink-dim);margin-top:10px;">Using proceeds as down payment: <strong style="color:var(--primary)">' + ((netProceeds/p.buyBudget)*100).toFixed(0) + '%</strong> down on new home</p>' : ''}
+    </div>`;
+}
+
+function renderSeasSelling() {
+  const items = [
+    { icon:'🎯', text:'Run your Make Me Move number', due:'Calculate tab → Make Me Move' },
+    { icon:'🏠', text:'Get a pre-listing inspection', due:'Find problems before buyers do' },
+    { icon:'🎨', text:'Fresh paint, landscaping, deep clean', due:'Highest ROI improvements' },
+    { icon:'📸', text:'Professional photography', due:'Non-negotiable in today\'s market' },
+    { icon:'📊', text:'Price strategically based on comps', due:'Overpriced = longer days on market' },
+    { icon:'📋', text:'Review seller\'s disclosure carefully', due:'Legal liability if you omit known issues' },
+    { icon:'📅', text:'Target spring listing (March–May)', due:'15–20% more showings than fall/winter' },
+  ];
+  const checkData = JSON.parse(localStorage.getItem('seas_sell_checks') || '{}');
+  return `<div class="dash-section"><div class="dash-section-title" style="margin-bottom:12px;">Selling Checklist</div><div class="dash-checklist">` +
+    items.map((item,i) => `<div class="check-item ${checkData[i]?'done':''}" onclick="toggleCheck('seas_sell_checks',${i},this)">
+      <div class="check-box"></div>
+      <div class="check-text"><span style="margin-right:6px;">${item.icon}</span>${item.text}<div class="check-due">${item.due}</div></div>
+    </div>`).join('') + '</div></div>';
+}
+
+function renderSeasBuying() {
+  const items = [
+    { icon:'✅', text:'Get pre-approved for new purchase', due:'Different from your existing loan' },
+    { icon:'🏦', text:'Explore bridge financing options', due:'Allows you to buy before selling' },
+    { icon:'📋', text:'Add sale contingency if needed', due:'Protects you if your home doesn\'t sell first' },
+    { icon:'🔍', text:'Begin actively searching in target area', due:'Set up alerts now' },
+    { icon:'🤝', text:'Coordinate closing dates with your agent', due:'Aim for same-day or same-week closings' },
+    { icon:'📦', text:'Plan temporary housing if gap exists', due:'Storage units, short-term rental backup plan' },
+  ];
+  const checkData = JSON.parse(localStorage.getItem('seas_buy_checks') || '{}');
+  return `<div class="dash-section"><div class="dash-section-title" style="margin-bottom:12px;">Buying Checklist</div><div class="dash-checklist">` +
+    items.map((item,i) => `<div class="check-item ${checkData[i]?'done':''}" onclick="toggleCheck('seas_buy_checks',${i},this)">
+      <div class="check-box"></div>
+      <div class="check-text"><span style="margin-right:6px;">${item.icon}</span>${item.text}<div class="check-due">${item.due}</div></div>
+    </div>`).join('') + '</div></div>';
+}
+
+// ── SHARED UTILS ──
+function toggleCheck(key, i, el) {
+  const data = JSON.parse(localStorage.getItem(key) || '{}');
+  data[i] = !data[i];
+  localStorage.setItem(key, JSON.stringify(data));
+  el.classList.toggle('done', data[i]);
+  checkNotifDot();
+}
+
+function buildNotifications() {
+  if (!dashProfile) return;
+  const notifs = generateNotifications();
+  const strip = document.getElementById('notifStrip');
+  if (!strip) return;
+  if (notifs.length === 0) { strip.classList.remove('has-notifs'); return; }
+  strip.classList.add('has-notifs');
+  strip.innerHTML = '<div class="notif-strip-title">🔔 Upcoming Reminders</div>' +
+    notifs.map(n => `<div class="notif-item"><div class="notif-icon">${n.icon}</div><div class="notif-text"><strong>${n.title}</strong><br>${n.text}<div class="notif-due">${n.due}</div></div></div>`).join('');
+}
+
+function generateNotifications() {
+  const p = dashProfile;
+  const notifs = [];
+  if (p.type === 'renter' && p.leaseEnd) {
+    const days = Math.ceil((new Date(p.leaseEnd) - new Date()) / 86400000);
+    if (days <= 120 && days > 0) notifs.push({ icon:'🏦', title:'Start Pre-Approval', text:'Your lease ends in ' + days + ' days. Start the pre-approval process now.', due:'Action needed now' });
+    if (days <= 60 && days > 0) notifs.push({ icon:'🔍', title:'Begin Home Search', text:'With 2 months left on your lease, you should be actively touring homes.', due:'Urgent' });
+  }
+  if (p.type === 'homeowner') {
+    const month = new Date().getMonth();
+    if (month === 3 || month === 4) notifs.push({ icon:'🏡', title:'Homestead Exemption', text:'File your homestead exemption now — most state deadlines are April/May.', due:'Deadline approaching' });
+    if (month === 2 || month === 8) notifs.push({ icon:'🌬️', title:'Change HVAC Filter', text:'Replace your air filter — recommended every 90 days.', due:'Seasonal reminder' });
+    if (month === 9 || month === 10) notifs.push({ icon:'🍂', title:'Fall Maintenance', text:'Clean gutters, service furnace, drain outdoor faucets before winter.', due:'October–November' });
+    if (month === 2 || month === 3) notifs.push({ icon:'🌸', title:'Spring Maintenance', text:'Inspect roof, clean gutters, service A/C before summer.', due:'March–April' });
+  }
+  return notifs;
+}
+
+function checkNotifDot() {
+  const notifs = dashProfile ? generateNotifications() : [];
+  const dot = document.getElementById('notifDot');
+  if (dot) dot.style.display = notifs.length > 0 ? 'block' : 'none';
+}
+
+// ── EDIT SECTIONS ──
+function editSection(section) {
+  const modal = document.getElementById('editModal');
+  const title = document.getElementById('editModalTitle');
+  const body = document.getElementById('editModalBody');
+  currentEditSection = section;
+
+  const p = dashProfile;
+
+  if (section === 'lease') {
+    title.textContent = 'Update Lease Info';
+    body.innerHTML = `
+      <div class="d-field"><label>Lease End Date</label><input type="date" id="edit_lease_end" value="${p.leaseEnd||''}"></div>
+      <div class="d-field"><label>Monthly Rent ($)</label><input type="number" id="edit_rent" value="${p.rent||''}"></div>`;
+  } else if (section === 'savings' || section === 'ft_savings') {
+    title.textContent = 'Update Savings';
+    body.innerHTML = `
+      <div class="d-field"><label>Current Savings ($)</label><input type="number" id="edit_savings" value="${p.currentSavings||''}"></div>
+      <div class="d-field"><label>Savings Goal ($)</label><input type="number" id="edit_goal" value="${p.savingsGoal||''}"></div>
+      <div class="d-field"><label>Target Budget ($)</label><input type="number" id="edit_budget" value="${p.targetBudget||p.budget||''}"></div>`;
+  } else if (section === 'ft_overview') {
+    title.textContent = 'Update Status';
+    body.innerHTML = `
+      <div class="d-field"><label>Pre-Approval Status</label><select id="edit_preapproval">
+        <option value="not_started" ${p.preapproval==='not_started'?'selected':''}>Not started</option>
+        <option value="in_progress" ${p.preapproval==='in_progress'?'selected':''}>In progress</option>
+        <option value="approved" ${p.preapproval==='approved'?'selected':''}>Pre-approved ✓</option>
+      </select></div>
+      <div class="d-field"><label>Search Stage</label><select id="edit_stage">
+        <option value="learning" ${p.stage==='learning'?'selected':''}>Learning & Preparing</option>
+        <option value="saving" ${p.stage==='saving'?'selected':''}>Actively Saving</option>
+        <option value="searching" ${p.stage==='searching'?'selected':''}>Actively Searching</option>
+        <option value="offer" ${p.stage==='offer'?'selected':''}>Making Offers</option>
+        <option value="under_contract" ${p.stage==='under_contract'?'selected':''}>Under Contract</option>
+      </select></div>`;
+  } else if (section === 'ho_overview') {
+    title.textContent = 'Update Home Values';
+    body.innerHTML = `
+      <div class="d-field"><label>Current Estimated Value ($)</label><input type="number" id="edit_value" value="${p.currentValue||''}"></div>
+      <div class="d-field"><label>Remaining Balance ($)</label><input type="number" id="edit_balance" value="${p.balance||''}"></div>
+      <div class="d-field"><label>Monthly Payment ($)</label><input type="number" id="edit_payment" value="${p.payment||''}"></div>`;
+  } else if (section === 'inv_overview') {
+    title.textContent = 'Update Portfolio';
+    body.innerHTML = `
+      <div class="d-field"><label>Monthly Rental Income ($)</label><input type="number" id="edit_income" value="${p.rentalIncome||''}"></div>
+      <div class="d-field"><label>Monthly Expenses ($)</label><input type="number" id="edit_expenses" value="${p.rentalExpenses||''}"></div>
+      <div class="d-field"><label>Portfolio Value ($)</label><input type="number" id="edit_portval" value="${p.portfolioVal||''}"></div>`;
+  } else if (section === 'seas_overview') {
+    title.textContent = 'Update Details';
+    body.innerHTML = `
+      <div class="d-field"><label>Current Home Value ($)</label><input type="number" id="edit_sellval" value="${p.sellValue||''}"></div>
+      <div class="d-field"><label>Remaining Mortgage ($)</label><input type="number" id="edit_sellbal" value="${p.sellBalance||''}"></div>
+      <div class="d-field"><label>Buy Budget ($)</label><input type="number" id="edit_buybudget" value="${p.buyBudget||''}"></div>`;
+  }
+
+  modal.classList.add('open');
+}
+
+function saveEditModal() {
+  const p = dashProfile;
+  const s = currentEditSection;
+  if (s === 'lease') {
+    p.leaseEnd = document.getElementById('edit_lease_end').value;
+    p.rent = +document.getElementById('edit_rent').value || p.rent;
+  } else if (s === 'savings' || s === 'ft_savings') {
+    p.currentSavings = +document.getElementById('edit_savings').value || p.currentSavings;
+    p.savingsGoal = +document.getElementById('edit_goal').value || p.savingsGoal;
+    p.targetBudget = +document.getElementById('edit_budget').value || p.targetBudget;
+  } else if (s === 'ft_overview') {
+    p.preapproval = document.getElementById('edit_preapproval').value;
+    p.stage = document.getElementById('edit_stage').value;
+  } else if (s === 'ho_overview') {
+    p.currentValue = +document.getElementById('edit_value').value || p.currentValue;
+    p.balance = +document.getElementById('edit_balance').value || p.balance;
+    p.payment = +document.getElementById('edit_payment').value || p.payment;
+  } else if (s === 'inv_overview') {
+    p.rentalIncome = +document.getElementById('edit_income').value || p.rentalIncome;
+    p.rentalExpenses = +document.getElementById('edit_expenses').value || p.rentalExpenses;
+    p.portfolioVal = +document.getElementById('edit_portval').value || p.portfolioVal;
+  } else if (s === 'seas_overview') {
+    p.sellValue = +document.getElementById('edit_sellval').value || p.sellValue;
+    p.sellBalance = +document.getElementById('edit_sellbal').value || p.sellBalance;
+    p.buyBudget = +document.getElementById('edit_buybudget').value || p.buyBudget;
+  }
+  saveDashProfile(p);
+  dashProfile = p;
+  closeEditModal();
+  showDashHome();
+  showToast('Updated!');
+}
+
+function closeEditModal() { document.getElementById('editModal').classList.remove('open'); }
+
+// Add notification strip to dashHome
+function addNotifStrip() {
+  const home = document.getElementById('dashHome');
+  if (!home.querySelector('#notifStrip')) {
+    const strip = document.createElement('div');
+    strip.className = 'notif-strip';
+    strip.id = 'notifStrip';
+    const tabs = document.getElementById('dashTabs');
+    home.insertBefore(strip, tabs);
+  }
+}
+
+// ── AGENT ADMIN ADDITIONS ──
+// Extend switchAdminTab to handle agent tab
+const _origSwitchAdminTab = switchAdminTab;
+function switchAdminTab(tab, btn) {
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('addTab').style.display = 'none';
+  document.getElementById('manageTab').style.display = 'none';
+  const agentEl = document.getElementById('agentTab');
+  if (agentEl) agentEl.style.display = 'none';
+  if (tab === 'add') document.getElementById('addTab').style.display = 'block';
+  else if (tab === 'manage') { document.getElementById('manageTab').style.display = 'block'; renderManageList(); }
+  else if (tab === 'agent') { if (agentEl) agentEl.style.display = 'block'; }
+}
+
+// Inject agent tab into admin when admin content is shown
+function injectAgentTab() {
+  const tabBar = document.querySelector('.admin-tabs');
+  if (!tabBar || tabBar.querySelector('[data-agent-tab]')) return;
+  const agentTab = document.createElement('button');
+  agentTab.className = 'admin-tab';
+  agentTab.setAttribute('data-agent-tab', '1');
+  agentTab.textContent = '🏠 Client Portal';
+  agentTab.onclick = function() { switchAdminTab('agent', this); };
+  tabBar.appendChild(agentTab);
+  const agentContent = document.createElement('div');
+  agentContent.id = 'agentTab';
+  agentContent.style.display = 'none';
+  agentContent.innerHTML = buildAgentTabHTML();
+  document.querySelector('.admin-body').appendChild(agentContent);
+}
+
+function buildAgentTabHTML() {
+  const ad = loadAgentData();
+  const vendors = ad.vendors || [];
+  return `
+    <div style="margin-bottom:20px;">
+      <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;font-weight:600;">Client Notes</div>
+      <div class="admin-field"><label>Renter / Buyer Note</label><textarea id="agent_ft_note" placeholder="e.g. Sarah is ready to start touring — budget confirmed at $350K">${ad.ftNote||ad.renterNote||''}</textarea></div>
+      <div class="admin-field"><label>Homeowner Note</label><textarea id="agent_ho_note" placeholder="e.g. Ran equity check-in — home appraised at $410K">${ad.hoNote||''}</textarea></div>
+      <div class="admin-field"><label>Equity Check-In Note (shown on Equity tab)</label><textarea id="agent_equity" placeholder="e.g. As of March 2025, your home is worth approx $410K giving you $185K in equity. Great position for a HELOC.">${ad.equityCheckIn||''}</textarea></div>
+      <div class="admin-field"><label>Investor Note</label><textarea id="agent_inv_note" placeholder="e.g. Portfolio performing well — consider 1031 on Oak Ave property">${ad.invNote||''}</textarea></div>
+      <button class="admin-save-btn" onclick="saveAgentNotes()">Save Notes</button>
+    </div>
+    <div style="border-top:1px solid var(--ink-faint);padding-top:20px;">
+      <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;font-weight:600;">Trusted Vendors</div>
+      <div id="vendorList">${renderVendorList(vendors)}</div>
+      <div style="margin-top:14px;background:var(--surface2);border-radius:12px;padding:14px;">
+        <div style="font-size:12px;font-weight:600;color:var(--ink);margin-bottom:10px;">Add Vendor</div>
+        <div class="admin-field"><label>Business Name</label><input type="text" id="v_name" placeholder="e.g. Mike's Plumbing"></div>
+        <div class="admin-field"><label>Specialty</label><input type="text" id="v_specialty" placeholder="e.g. Plumber, HVAC, Electrician"></div>
+        <div class="admin-field"><label>Phone</label><input type="tel" id="v_phone" placeholder="e.g. 215-555-0100"></div>
+        <div class="admin-field"><label>Note (optional)</label><input type="text" id="v_note" placeholder="e.g. Best in the area, fair pricing"></div>
+        <div class="admin-field"><label>Icon</label>
+          <select id="v_icon"><option value="🔧">🔧 General</option><option value="💧">💧 Plumber</option><option value="⚡">⚡ Electrician</option><option value="🌬️">🌬️ HVAC</option><option value="🏠">🏠 Contractor</option><option value="🌿">🌿 Landscaper</option><option value="🎨">🎨 Painter</option><option value="🪟">🪟 Windows</option><option value="🏗️">🏗️ Renovation</option></select>
+        </div>
+        <button class="admin-save-btn" onclick="addVendor()">Add Vendor</button>
+      </div>
+    </div>`;
+}
+
+function renderVendorList(vendors) {
+  if (!vendors.length) return '<p style="font-size:12px;color:var(--ink-dim);">No vendors added yet.</p>';
+  return vendors.map((v,i) => `<div class="admin-card-item"><div class="aci-emoji">${v.icon||'🔧'}</div><div class="aci-info"><div class="aci-title">${v.name}</div><div class="aci-cat">${v.specialty}${v.phone?' · '+v.phone:''}</div></div><button class="aci-del" onclick="deleteVendor(${i})">Delete</button></div>`).join('');
+}
+
+function saveAgentNotes() {
+  const ad = loadAgentData();
+  ad.ftNote = document.getElementById('agent_ft_note').value;
+  ad.renterNote = document.getElementById('agent_ft_note').value;
+  ad.hoNote = document.getElementById('agent_ho_note').value;
+  ad.equityCheckIn = document.getElementById('agent_equity').value;
+  ad.invNote = document.getElementById('agent_inv_note').value;
+  saveAgentData(ad);
+  agentData = ad;
+  showToast('Notes saved!');
+}
+
+function addVendor() {
+  const name = document.getElementById('v_name').value.trim();
+  if (!name) { showToast('Enter a vendor name'); return; }
+  const ad = loadAgentData();
+  if (!ad.vendors) ad.vendors = [];
+  ad.vendors.push({
+    name, specialty: document.getElementById('v_specialty').value,
+    phone: document.getElementById('v_phone').value,
+    note: document.getElementById('v_note').value,
+    icon: document.getElementById('v_icon').value
+  });
+  saveAgentData(ad);
+  agentData = ad;
+  document.getElementById('vendorList').innerHTML = renderVendorList(ad.vendors);
+  ['v_name','v_specialty','v_phone','v_note'].forEach(id => document.getElementById(id).value = '');
+  showToast('Vendor added!');
+}
+
+function deleteVendor(i) {
+  if (!confirm('Remove this vendor?')) return;
+  const ad = loadAgentData();
+  ad.vendors.splice(i, 1);
+  saveAgentData(ad);
+  agentData = ad;
+  document.getElementById('vendorList').innerHTML = renderVendorList(ad.vendors);
+  showToast('Removed.');
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  checkNotifDot();
+  // Add notif strip placeholder
+  const home = document.getElementById('dashHome');
+  if (home) {
+    const strip = document.createElement('div');
+    strip.className = 'notif-strip';
+    strip.id = 'notifStrip';
+    home.insertBefore(strip, home.children[1]);
+  }
+});
+
+</script>
+
+<!-- ══════════════════════════════════════
+     DASHBOARD PANEL
+══════════════════════════════════════ -->
+<div class="dash-panel" id="dashPanel">
+
+  <!-- HEADER -->
+  <div class="dash-header">
+    <div class="dash-header-left">
+      <h2 id="dashHeaderTitle">My Dashboard</h2>
+      <p id="dashHeaderSub">Your personal real estate command center</p>
+    </div>
+    <button class="close-btn" onclick="closeDashboard()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <!-- ONBOARDING FLOW -->
+  <div class="dash-onboard" id="dashOnboard">
+
+    <!-- Step 1: Pick type -->
+    <div class="onboard-step active" id="onboard-step-1">
+      <div class="onboard-title">Welcome to your dashboard</div>
+      <div class="onboard-sub">Tell us where you are in your real estate journey and we'll build your portal around you.</div>
+      <div class="profile-type-grid">
+        <div class="profile-type-card" onclick="selectProfileType('renter',this)">
+          <div class="ptc-icon">🏠</div>
+          <div class="ptc-name">Renter</div>
+          <div class="ptc-desc">Tracking my lease & planning to buy</div>
+        </div>
+        <div class="profile-type-card" onclick="selectProfileType('firsttime',this)">
+          <div class="ptc-icon">🔑</div>
+          <div class="ptc-name">First-Time Buyer</div>
+          <div class="ptc-desc">Saving up & getting ready</div>
+        </div>
+        <div class="profile-type-card" onclick="selectProfileType('homeowner',this)">
+          <div class="ptc-icon">🏡</div>
+          <div class="ptc-name">Homeowner</div>
+          <div class="ptc-desc">Managing my home & building equity</div>
+        </div>
+        <div class="profile-type-card" onclick="selectProfileType('investor',this)">
+          <div class="ptc-icon">📈</div>
+          <div class="ptc-name">Investor</div>
+          <div class="ptc-desc">Growing my property portfolio</div>
+        </div>
+        <div class="profile-type-card" onclick="selectProfileType('seasoned',this)" style="grid-column: span 2;">
+          <div class="ptc-icon">🔄</div>
+          <div class="ptc-name">Seasoned Buyer</div>
+          <div class="ptc-desc">Selling and buying simultaneously</div>
+        </div>
+      </div>
+      <button class="d-btn" onclick="goOnboardStep(2)">Continue →</button>
+    </div>
+
+    <!-- Step 2: Basic info -->
+    <div class="onboard-step" id="onboard-step-2">
+      <div class="onboard-title">A little about you</div>
+      <div class="onboard-sub">This stays on your device. Your agent can also fill in parts of this for you.</div>
+      <div class="d-field"><label>Your Name</label><input type="text" id="ob_name" placeholder="e.g. Sarah Johnson"></div>
+      <div class="d-field"><label>Your Email (for reminders)</label><input type="email" id="ob_email" placeholder="sarah@email.com"></div>
+      <div id="renter-fields">
+        <div class="d-field"><label>Lease End Date</label><input type="date" id="ob_lease_end"></div>
+        <div class="d-field"><label>Monthly Rent ($)</label><input type="number" id="ob_rent" placeholder="e.g. 1,800"></div>
+        <div class="d-field"><label>Savings Goal for Down Payment ($)</label><input type="number" id="ob_savings_goal" placeholder="e.g. 25,000"></div>
+        <div class="d-field"><label>Current Savings ($)</label><input type="number" id="ob_current_savings" placeholder="e.g. 8,000"></div>
+        <div class="d-field"><label>Target Home Budget ($)</label><input type="number" id="ob_target_budget" placeholder="e.g. 300,000"></div>
+      </div>
+      <div id="firsttime-fields" style="display:none;">
+        <div class="d-field"><label>Savings Goal for Down Payment ($)</label><input type="number" id="ob_ft_goal" placeholder="e.g. 30,000"></div>
+        <div class="d-field"><label>Current Savings ($)</label><input type="number" id="ob_ft_savings" placeholder="e.g. 12,000"></div>
+        <div class="d-field"><label>Target Home Budget ($)</label><input type="number" id="ob_ft_budget" placeholder="e.g. 350,000"></div>
+        <div class="d-field"><label>Pre-Approval Status</label>
+          <select id="ob_ft_preapproval">
+            <option value="not_started">Not started yet</option>
+            <option value="in_progress">In progress</option>
+            <option value="approved">Pre-approved ✓</option>
+          </select>
+        </div>
+        <div class="d-field"><label>Search Stage</label>
+          <select id="ob_ft_stage">
+            <option value="learning">Still learning / not ready</option>
+            <option value="saving">Actively saving</option>
+            <option value="searching">Actively searching</option>
+            <option value="offer">Making offers</option>
+            <option value="under_contract">Under contract</option>
+          </select>
+        </div>
+      </div>
+      <div id="homeowner-fields" style="display:none;">
+        <div class="d-field"><label>Home Address</label><input type="text" id="ob_address" placeholder="123 Main St"></div>
+        <div class="d-field"><label>Purchase Price ($)</label><input type="number" id="ob_purchase" placeholder="e.g. 320,000"></div>
+        <div class="d-field"><label>Current Estimated Value ($)</label><input type="number" id="ob_value" placeholder="e.g. 390,000"></div>
+        <div class="d-field"><label>Remaining Mortgage Balance ($)</label><input type="number" id="ob_balance" placeholder="e.g. 240,000"></div>
+        <div class="d-field"><label>Monthly Payment ($)</label><input type="number" id="ob_payment" placeholder="e.g. 1,950"></div>
+        <div class="d-field"><label>Loan Term</label>
+          <select id="ob_term">
+            <option value="30">30 Year</option>
+            <option value="20">20 Year</option>
+            <option value="15">15 Year</option>
+          </select>
+        </div>
+        <div class="d-field"><label>Years Remaining on Mortgage</label><input type="number" id="ob_years_left" placeholder="e.g. 24"></div>
+      </div>
+      <div id="investor-fields" style="display:none;">
+        <div class="d-field"><label>Number of Properties Owned</label><input type="number" id="ob_num_props" placeholder="e.g. 3" min="1"></div>
+        <div class="d-field"><label>Total Portfolio Value (est.) ($)</label><input type="number" id="ob_portfolio_val" placeholder="e.g. 1,200,000"></div>
+        <div class="d-field"><label>Total Monthly Rental Income ($)</label><input type="number" id="ob_rental_income" placeholder="e.g. 6,500"></div>
+        <div class="d-field"><label>Total Monthly Expenses ($)</label><input type="number" id="ob_rental_expenses" placeholder="e.g. 4,200"></div>
+      </div>
+      <div id="seasoned-fields" style="display:none;">
+        <div class="d-field"><label>Current Home Address</label><input type="text" id="ob_sell_address" placeholder="123 Current St"></div>
+        <div class="d-field"><label>Current Home Value ($)</label><input type="number" id="ob_sell_value" placeholder="e.g. 450,000"></div>
+        <div class="d-field"><label>Remaining Mortgage ($)</label><input type="number" id="ob_sell_balance" placeholder="e.g. 180,000"></div>
+        <div class="d-field"><label>Target Buy Budget ($)</label><input type="number" id="ob_buy_budget" placeholder="e.g. 600,000"></div>
+        <div class="d-field"><label>Selling Timeline</label>
+          <select id="ob_sell_timeline">
+            <option value="now">Listed now</option>
+            <option value="3mo">Within 3 months</option>
+            <option value="6mo">Within 6 months</option>
+            <option value="exploring">Still deciding</option>
+          </select>
+        </div>
+      </div>
+      <button class="d-btn" onclick="saveDashboardProfile()">Build My Dashboard →</button>
+      <button class="d-btn-outline" onclick="goOnboardStep(1)">← Back</button>
+    </div>
+
+  </div>
+
+  <!-- DASHBOARD HOME (shown after onboarding) -->
+  <div id="dashHome" style="display:none; flex-direction:column; flex:1; overflow:hidden;">
+
+    <!-- Welcome strip -->
+    <div class="dash-welcome" id="dashWelcome">
+      <h3 id="dashWelcomeName">Welcome back</h3>
+      <p id="dashWelcomeSub">Here's your real estate snapshot</p>
+      <div class="dash-welcome-type" id="dashWelcomeType">—</div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="dash-tabs" id="dashTabs"></div>
+
+    <!-- Tab content -->
+    <div style="flex:1; overflow-y:auto;">
+      <div id="dashTabContent"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Edit Modal -->
+<div class="edit-modal" id="editModal">
+  <div class="edit-modal-inner">
+    <div class="edit-modal-title" id="editModalTitle">Edit</div>
+    <div id="editModalBody"></div>
+    <button class="d-btn" onclick="saveEditModal()">Save Changes</button>
+    <button class="d-btn-outline" onclick="closeEditModal()" style="margin-top:8px;">Cancel</button>
+  </div>
+</div>
+
+</body>
+</html>
